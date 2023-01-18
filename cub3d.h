@@ -32,7 +32,6 @@ typedef struct s_texture
 	int		fd;
 	char	*path;
 	t_hash	colours;
-	char	*code[2];
 	char	**texture;
 	char	**file;
 }			t_texture;
@@ -54,6 +53,8 @@ typedef struct s_data
 	t_texture	west;
 	void		*mlx;
 	void		*win;
+	int			height;
+	int			width;
 }			t_data;
 
 int	parse_map(t_data *data);

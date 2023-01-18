@@ -16,7 +16,8 @@ int	parse_map(t_data *data)
 			i++;
 			printf("valid");
 		}
-		data->north.path = data->map.file[0] + 5;
+		data->north.path = data->map.file[0] + 3;
+		data->north.path[ft_strlen(data->north.path) - 1] = 0;
 		return (1);
 	}
 	perror(strerror(errno));

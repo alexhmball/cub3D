@@ -6,17 +6,17 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		perror("Please provide a configuration file\n");
+		printf("Error\nPlease provide a configuration file\n");
 	}
 	else
 	{
 		data.map.path = *(av + 1);
 		parse_map(&data);
 		parse_texture(&data);
-		data.mlx  = mlx_init();
-		data.win = mlx_new_window(data.mlx, 800, 560, "cub3d");
-		test_exec(&data);
+		// data.mlx  = mlx_init();
+		// data.win = mlx_new_window(data.mlx, 1000, 1000, "cub3d");
+		// test_exec(&data);
 		// execute here
-		mlx_loop(data.mlx);
+		// mlx_loop(data.mlx);
 	}
 }
