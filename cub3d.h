@@ -15,6 +15,7 @@
 # define SCREEN_H 1920
 # define SCREEN_W 1080
 # define PI 3.14159265359
+
 // testing hashmaps
 // # define SIZE 256
 
@@ -48,11 +49,13 @@ typedef struct s_player
 {
 	int		x_pos;
 	int		y_pos;
+	char	direction;
 }		t_player;
 
 typedef struct s_data
 {
 	t_map		map;
+	t_player	player;
 	t_texture	north;
 	t_texture	south;
 	t_texture	east;
@@ -75,6 +78,7 @@ int		parse_texture(t_data *data);
 void	test_exec(t_data *data);
 int		hextoi(char *hex);
 int		rgbtoi(int r, int g, int b);
+int		parse_player(t_data *data);
 
 // testing hash maps
 // unsigned int	hash_key(char *str);

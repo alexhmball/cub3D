@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:40 by aball             #+#    #+#             */
-/*   Updated: 2023/01/22 19:56:24 by aball            ###   ########.fr       */
+/*   Updated: 2023/01/22 21:27:19 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,15 @@ void test_exec(t_data *data)
 	for (int i = 0; i < SCREEN_H; i++)
 	{
 		for (int j = 0; j < SCREEN_W; j++)
-			my_mlx_pixel_put(data, i, j, data->ceiling);
+		{
+			if (j < SCREEN_W / 2)
+				my_mlx_pixel_put(data, i, j, data->ceiling);
+			else
+				my_mlx_pixel_put(data, i, j, data->floor);
+		}
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
+	mlx_put_image_to_window(data->mlx, data->win, data->north.xpm, 500, 500);
 	printf("floor: %d  ceiling:  %d\n", data->floor, data->ceiling);
 	//loop through map and draw walls
 

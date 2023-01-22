@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:43 by aball             #+#    #+#             */
-/*   Updated: 2023/01/22 19:55:53 by aball            ###   ########.fr       */
+/*   Updated: 2023/01/22 20:06:22 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,11 @@ int	main(int ac, char **av)
 	t_data data;
 
 	if (ac != 2)
-	{
 		printf("Error\nPlease provide a configuration file\n");
-	}
 	else
 	{
 		data.map.path = *(av + 1);
-		if (!parse_map(&data) || !parse_texture(&data))
+		if (!parse_map(&data) || !parse_texture(&data) || !parse_player(&data))
 			exit(1);
 		printf("%s\n", data.north.path);
 		data.mlx  = mlx_init();
