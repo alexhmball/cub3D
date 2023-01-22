@@ -1,29 +1,19 @@
 # include "cub3d.h"
 
+void	my_mlx_pixel_put(t_data *data, int x, int y, int colour)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int*)dst = colour;
+}
+
 void test_exec(t_data *data)
 {
-	int	i;
-	int	j;
-	int	x;
-	int	y;
-	int	hex;
-
-	i = 0;
-	j = 0;
-	x = 0;
-	y = 0;
-	hex = hextoi("B5B6B7");
-	while(i < 1000)
+	for (int i = 0; data->map.map[i]; i++)
 	{
-		while( j < 1000)
-		{
-			mlx_pixel_put(data->mlx, data->win, x, y, hex);
-			j++;
-			x++;
-		}
-		i++;
-		y++;
-		x = 0;
-		j = 0;
+		printf("%s\n", data->map.map[i]);
 	}
+	//loop through map and draw walls
+
 }

@@ -1,8 +1,8 @@
 #include "cub3d.h"
 
-static int	find_hex_val(char c)
+static int find_hex_val(char c)
 {
-	int	i;
+	int i;
 	char *compare;
 
 	i = 0;
@@ -16,11 +16,11 @@ static int	find_hex_val(char c)
 	return (0);
 }
 
-int	hextoi(char *hex)
+int hextoi(char *hex)
 {
-	int	i;
-	int	ret;
-	int	power;
+	int i;
+	int ret;
+	int power;
 
 	i = 0;
 	ret = 0;

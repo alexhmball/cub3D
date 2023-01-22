@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aball <aball@student.42.fr>                +#+  +:+       +#+         #
+#    By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 14:07:38 by aball             #+#    #+#              #
-#    Updated: 2023/01/18 15:35:53 by aball            ###   ########.fr        #
+#    Updated: 2023/01/18 21:07:11 by ballzball        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ OBJSBONUS = ${BONUS:c=o}
 CC		= gcc
 RM		= rm -f
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -g -Wall -Wextra -Werror
 
 all: ${NAME}
 
