@@ -4,14 +4,14 @@ ARC = $(shell uname)
 
 GNL = get_next_line.c get_next_line_utils.c
 
-SCRS = main.c map_parser.c texture_parser.c test.c hextoi.c hash_table.c
+SCRS = main.c map_parser.c texture_parser.c test.c hextoi.c rgb.c
 
 SCRS += $(addprefix get_next_line/, $(GNL))
 
 OBJS = ${SCRS:c=o}
 
 ifeq (${ARC}, Darwin)
-LINKS = -framework OpenGL -framework Appkit -L minilibx_opengl/ -lmlx
+LINKS = -framework OpenGL -framework Appkit -L mlx/ -lmlx
 
 LIBDIR = mlx/
 endif
@@ -25,7 +25,7 @@ endif
 all: $(NAME)
 
 $(NAME): libft mlx ${OBJS}
-	gcc -g -Wall -Wextra -Werror ${OBJS} libft/libft.a ${LINKS} -lm -o ${NAME}
+	gcc -g -fsanitize=address -Wall -Wextra -Werror ${OBJS} libft/libft.a ${LINKS} -lm -o ${NAME}
 
 %.o:%.c
 	gcc -g -Wall -Wextra -Werror -c $< -o ${<:c=o}

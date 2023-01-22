@@ -10,25 +10,25 @@
 # include "libft/libft.h"
 # include "get_next_line/get_next_line.h"
 # include <math.h>
-# include "mlx_linux/mlx.h"
-# include "mlx_linux/mlx_int.h"
+# include "mlx/mlx.h"
 
-# define SIZE 256
+# define SCREEN_H 1920
+# define SCREEN_W 1080
+# define PI 3.14159265359
+// testing hashmaps
+// # define SIZE 256
 
-typedef struct s_hex
-{
-	int		colour;
-	char	*key;
-	struct s_hex	*next;
-}			t_hex;
+// typedef struct s_hex
+// {
+// 	int		colour;
+// 	char	*key;
+// 	struct s_hex	*next;
+// }			t_hex;
 
 typedef struct s_texture
 {
 	int		fd;
 	char	*path;
-	t_hex	**colours;
-	int		c_num;
-	int		c_size;
 	char	**texture;
 	char	**file;
 	void	*xpm;
@@ -43,6 +43,12 @@ typedef struct s_map
 	char	*path;
 	char	**file;
 }		t_map;
+
+typedef struct s_player
+{
+	int		x_pos;
+	int		y_pos;
+}		t_player;
 
 typedef struct s_data
 {
@@ -64,14 +70,17 @@ typedef struct s_data
 	int			endian;
 }			t_data;
 
-int	parse_map(t_data *data);
-int	parse_texture(t_data *data);
-void test_exec(t_data *data);
-int	hextoi(char *hex);
-unsigned int hash_key(char *str);
-t_hex	**create_table(void);
-t_hex	*create_hex(char *key, char *colour, t_hex *new);
-t_hex	**insert_hex(t_hex **hash_table, char *key, char *colour);
-int		find_hex_colour(char *key, t_hex **hash_table, int size);
+int		parse_map(t_data *data);
+int		parse_texture(t_data *data);
+void	test_exec(t_data *data);
+int		hextoi(char *hex);
+int		rgbtoi(int r, int g, int b);
+
+// testing hash maps
+// unsigned int	hash_key(char *str);
+// t_hex	**create_table(void);
+// t_hex	*create_hex(char *key, char *colour, t_hex *new);
+// t_hex	**insert_hex(t_hex **hash_table, char *key, char *colour);
+// int		find_hex_colour(char *key, t_hex **hash_table, int size);
 
 #endif

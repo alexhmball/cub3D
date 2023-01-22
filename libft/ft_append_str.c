@@ -1,6 +1,6 @@
 #include "libft.h"
 
-static void	freedom(char **str)
+void	freedom(char **str)
 {
 	int	i;
 
@@ -14,7 +14,7 @@ static void	freedom(char **str)
 	}
 }
 
-static int two_d_strlen(char **str)
+int two_d_strlen(char **str)
 {
 	int	i;
 

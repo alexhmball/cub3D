@@ -1,4 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/22 15:47:43 by aball             #+#    #+#             */
+/*   Updated: 2023/01/22 19:55:53 by aball            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
+
+int	exit_prog(void *param)
+{
+	(void)param;
+	exit (1);
+}
 
 int	key_press(int keycode, void *data)
 {
@@ -15,14 +33,6 @@ int	key_press(int keycode, void *data)
 	return (0);
 }
 
-
-
-// void	key_hook(t_data *data)
-// {
-// 	// mlx_hook(data->win, 2, 1L<<0, key_press, data);
-// 	mlx_key_hook(data->win, key_press, data);
-// }
-
 int	main(int ac, char **av)
 {
 	t_data data;
@@ -34,19 +44,17 @@ int	main(int ac, char **av)
 	else
 	{
 		data.map.path = *(av + 1);
-		parse_map(&data);
+		if (!parse_map(&data) || !parse_texture(&data))
+			exit(1);
 		printf("%s\n", data.north.path);
-		parse_texture(&data);
 		data.mlx  = mlx_init();
-		data.win = mlx_new_window(data.mlx, data.height, data.width, "cub3d");
-		data.img = mlx_new_image(data.mlx, data.width, data.height);
+		data.win = mlx_new_window(data.mlx, SCREEN_H, SCREEN_W, "cub3d");
+		data.img = mlx_new_image(data.mlx, SCREEN_H, SCREEN_W);
 		data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_length, &data.endian);
-		data.north.xpm = mlx_xpm_file_to_image(data.mlx, data.north.path, &data.width, &data.height);
-		test_exec(&data);
 		// execute here
-		// key_hook(&data);
+		test_exec(&data);
 		mlx_key_hook(data.win, key_press, &data);
-		// mlx_hook(data.win, 17, 0, exit_prog, (void *)0);
+		mlx_hook(data.win, 17, 0, exit_prog, (void *)0);
 		mlx_loop(data.mlx);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 20:19:34 by aball             #+#    #+#             */
-/*   Updated: 2023/01/18 15:35:39 by aball            ###   ########.fr       */
+/*   Updated: 2023/01/22 17:47:00 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,9 @@ char		*str_sep(int size, char **strs, char *sep);
 void		ft_swap(void *a, void *b);
 // size_t		ft_atol(char *str);
 char		**append_str(char **str, char *append);
+int			two_d_strlen(char **str);
+void		freedom(char **str);
+char		**two_d_strdup(char **str);
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~DOUBLY LINKED LISTS~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 

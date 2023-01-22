@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 16:33:49 by aball             #+#    #+#             */
-/*   Updated: 2022/12/08 04:05:58 by aball            ###   ########.fr       */
+/*   Updated: 2023/01/22 19:27:15 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static int	error_message(long r, int s)
 {
 	if (r > INT_MAX || r * s < INT_MIN)
 	{
-		perror("minishell: exit: numeric argument required");
-		r = 255;
+		perror("Number out of range\n");
+		r = -1;
 		return (1);
 	}
 	return (0);
@@ -46,7 +46,7 @@ int	ft_atoi(const char *str)
 		r += *str - '0';
 		str++;
 		if (error_message(r, s))
-			return (r * s);
+			return (r);
 	}
 	return (r * s);
 }
