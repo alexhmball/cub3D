@@ -39,8 +39,10 @@
 
 
 # define SCREEN_H 1920
-# define SCREEN_W 1080
-# define PI 3.14159265359
+# define SCREEN_W 1024
+# define STEP 1
+# define BLOCK 64
+# define FOV 90
 
 // testing hashmaps
 // # define SIZE 256
@@ -79,8 +81,10 @@ typedef struct s_map
 
 typedef struct s_player
 {
-	int		x_pos;
-	int		y_pos;
+	double	x_pos;
+	double	y_pos;
+	double	degree;
+	double	radian;
 	char	direction;
 }		t_player;
 
@@ -107,10 +111,13 @@ typedef struct s_data
 
 int		parse_map(t_data *data);
 int		parse_texture(t_data *data);
-void	test_exec(t_data *data);
+void	place_ceiling_floor(t_data *data);
 int		hextoi(char *hex);
 int		rgbtoi(int r, int g, int b);
 int		parse_player(t_data *data);
+double	radtodeg(double rad);
+double	degtorad(double deg);
+double	distance(double x, double y, t_player *player);
 
 // testing hash maps
 // unsigned int	hash_key(char *str);

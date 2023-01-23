@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:43 by aball             #+#    #+#             */
-/*   Updated: 2023/01/23 09:45:22 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/01/23 17:15:54 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,9 @@ int	main(int ac, char **av)
 		data.img = mlx_new_image(data.mlx, SCREEN_H, SCREEN_W);
 		data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_length, &data.endian);
 		// execute here
-		test_exec(&data);
+		place_ceiling_floor(&data);
 		// mlx_key_hook(data.win, key_press, &data);
+		printf("hyppo 64 cube: %f\n", sqrt(pow((16 - 0), 2) + pow(16 - 0, 2)));
 		mlx_hook(data.win, 2, 1L<<0, key_press, &data);
 		mlx_hook(data.win, 17, 0, exit_prog, (void *)0);
 		mlx_loop(data.mlx);

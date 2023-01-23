@@ -14,7 +14,7 @@ unsigned int hash_key(char *str)
 		hash += str[i];
 		i++;
 	}
-	hash = hash % SIZE;
+	hash %= SIZE;
 	return (hash);
 }
 
