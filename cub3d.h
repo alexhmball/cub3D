@@ -1,6 +1,32 @@
 #ifndef CUB3D_H
 # define CUB3D_H
 
+# ifdef LINUX
+#  include "mlx_linux/mlx.h"
+#  define ESC 65307
+#  define W 119
+#  define A 97
+#  define S 115
+#  define D 100
+#  define LEFT 65361
+#  define RIGHT 65363
+#  define UP 65362
+#  define DOWN 65364
+#endif
+
+# ifdef MACOS
+#  include "mlx/mlx.h"
+#  define ESC 53
+#  define W 13
+#  define A 0
+#  define S 1
+#  define D 2
+#  define LEFT 123
+#  define RIGHT 124
+#  define UP 126
+#  define DOWN 125
+# endif
+
 # include <stdio.h>
 # include <fcntl.h>
 # include <unistd.h>
@@ -10,7 +36,7 @@
 # include "libft/libft.h"
 # include "get_next_line/get_next_line.h"
 # include <math.h>
-# include "mlx/mlx.h"
+
 
 # define SCREEN_H 1920
 # define SCREEN_W 1080
@@ -33,6 +59,12 @@ typedef struct s_texture
 	char	**texture;
 	char	**file;
 	void	*xpm;
+	char	*addr;
+	int		height;
+	int		width;
+	int		bits;
+	int		line;
+	int		endian;
 }			t_texture;
 
 typedef struct s_map

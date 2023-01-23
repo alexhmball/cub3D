@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_parser.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:56:21 by aball             #+#    #+#             */
-/*   Updated: 2023/01/22 17:55:45 by aball            ###   ########.fr       */
+/*   Updated: 2023/01/22 22:37:09 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,13 @@ static void	set_up_ptr(t_data *data)
 	h = 32;
 	w = 32;
 	data->north.xpm = mlx_xpm_file_to_image(data->mlx, data->north.path, &w, &h);
+	data->north.addr = mlx_get_data_addr(data->north.xpm, &data->north.bits, &data->north.line, &data->north.endian);
 	data->south.xpm = mlx_xpm_file_to_image(data->mlx, data->south.path, &w, &h);
+	data->south.addr = mlx_get_data_addr(data->south.xpm, &data->south.bits, &data->south.line, &data->south.endian);
 	data->east.xpm = mlx_xpm_file_to_image(data->mlx, data->east.path, &w, &h);
+	data->east.addr = mlx_get_data_addr(data->east.xpm, &data->east.bits, &data->east.line, &data->east.endian);
 	data->west.xpm = mlx_xpm_file_to_image(data->mlx, data->west.path, &w, &h);
+	data->west.addr = mlx_get_data_addr(data->west.xpm, &data->west.bits, &data->west.line, &data->west.endian);
 }
 
 int	parse_texture(t_data *data)

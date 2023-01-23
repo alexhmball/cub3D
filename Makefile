@@ -11,7 +11,9 @@ SCRS += $(addprefix get_next_line/, $(GNL))
 OBJS = ${SCRS:c=o}
 
 ifeq (${ARC}, Darwin)
-LINKS = -framework OpenGL -framework Appkit -L mlx/ -lmlx
+LINKS = -framework OpenGL -framework Appkit -L minilibx_opengl/ -lmlx
+
+OS = MACOS
 
 LIBDIR = mlx/
 endif
@@ -19,16 +21,18 @@ endif
 ifeq (${ARC}, Linux)
 LINKS = -L mlx_linux/ -lmlx -lXext -lX11 -lm -lz
 
+OS = LINUX
+
 LIBDIR = mlx_linux/
 endif
 
 all: $(NAME)
 
 $(NAME): libft mlx ${OBJS}
-	gcc -g -fsanitize=address -Wall -Wextra -Werror ${OBJS} libft/libft.a ${LINKS} -lm -o ${NAME}
+	gcc -g -fsanitize=address -Wall -Wextra -Werror -D ${OS} ${OBJS} libft/libft.a ${LINKS} -lm -o ${NAME}
 
 %.o:%.c
-	gcc -g -Wall -Wextra -Werror -c $< -o ${<:c=o}
+	gcc -g -Wall -Wextra -Werror -D ${OS} -c $< -o ${<:c=o}
 
 clean:
 	rm -fr ${OBJS}

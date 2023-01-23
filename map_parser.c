@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parser.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:36 by aball             #+#    #+#             */
-/*   Updated: 2023/01/22 19:37:22 by aball            ###   ########.fr       */
+/*   Updated: 2023/01/22 21:57:22 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,12 +141,10 @@ int	find_colour(char *str, int *colour)
 int	find_fc(t_data *data)
 {
 	int	i;
-	int	x;
 
 	i = 0;
 	while (data->map.file[i])
 	{
-		x = 1;
 		if (data->map.file[i][0] == 'F')
 		{
 			if (!find_colour(data->map.file[i] + 1, &data->floor))
