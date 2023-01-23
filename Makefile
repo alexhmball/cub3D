@@ -11,7 +11,7 @@ SCRS += $(addprefix get_next_line/, $(GNL))
 OBJS = ${SCRS:c=o}
 
 ifeq (${ARC}, Darwin)
-LINKS = -framework OpenGL -framework Appkit -L minilibx_opengl/ -lmlx
+LINKS = -framework OpenGL -framework Appkit -L mlx/ -lmlx
 
 OS = MACOS
 
