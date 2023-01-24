@@ -3,7 +3,7 @@ SO ./textures/colourful_wall.xpm
 EA ./textures/testwall.xpm
 WE ./textures/colourful_wall.xpm
 
-F 10,10,31
+F 10,148,56
 C 45,63,99
 
 111111111111111111111111111111111111111111111111111111111111

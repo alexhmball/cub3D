@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:43 by aball             #+#    #+#             */
-/*   Updated: 2023/01/23 17:15:54 by aball            ###   ########.fr       */
+/*   Updated: 2023/01/24 18:17:18 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	main(int ac, char **av)
 		if (!parse_map(&data) || !parse_texture(&data) || !parse_player(&data))
 			exit(1);
 		printf("%s\n", data.north.path);
-		data.win = mlx_new_window(data.mlx, SCREEN_H, SCREEN_W, "cub3d");
-		data.img = mlx_new_image(data.mlx, SCREEN_H, SCREEN_W);
+		data.win = mlx_new_window(data.mlx, SCREEN_W, SCREEN_H, "cub3d");
+		data.img = mlx_new_image(data.mlx, SCREEN_W, SCREEN_H);
 		data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_length, &data.endian);
 		// execute here
 		place_ceiling_floor(&data);

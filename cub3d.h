@@ -38,8 +38,8 @@
 # include <math.h>
 
 
-# define SCREEN_H 1920
-# define SCREEN_W 1024
+# define SCREEN_H 1024
+# define SCREEN_W 1920
 # define STEP 1
 # define BLOCK 64
 # define FOV 90
