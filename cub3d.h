@@ -54,6 +54,14 @@
 // 	struct s_hex	*next;
 // }			t_hex;
 
+typedef struct s_ray
+{
+	double	x;
+	double	y;
+	double	angle;
+}		t_ray;
+
+
 typedef struct s_texture
 {
 	int		fd;
@@ -88,6 +96,7 @@ typedef struct s_player
 	double	y_pos;
 	double	degree;
 	double	radian;
+	t_ray	ray;
 	char	direction;
 }		t_player;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:40 by aball             #+#    #+#             */
-/*   Updated: 2023/01/25 12:45:11 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/01/26 17:48:26 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void place_ceiling_floor(t_data *data)
 	x = 0;
 	iy = 0;
 	ix = 0;
-	gradiant = 500;
+	gradiant = 1;
 	down = (SCREEN_H / 3);
 	up = (SCREEN_H / 3) + (down);
 	data->north.x = 0;
@@ -85,8 +85,6 @@ void place_ceiling_floor(t_data *data)
 		data->north.x += data->north.step;
 		data->south.x += data->south.step;
 		data->east.x += data->east.step;
-		if (gradiant > 1 && x % 2 == 0)
-			gradiant--;
 		if (x % 3 == 0 && x > 200 && x < 500)
 		{
 			up--;
