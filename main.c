@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:43 by aball             #+#    #+#             */
-/*   Updated: 2023/01/24 18:17:18 by aball            ###   ########.fr       */
+/*   Updated: 2023/01/24 21:32:16 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	key_press(int keycode, void *data)
 	// {
 		mlx_clear_window(data2->mlx, data2->win);
 		mlx_put_image_to_window(data2->mlx, data2->win, data2->north.xpm, 0, 0);
+		place_ceiling_floor(data2);
 		printf("%d\n", keycode);
 	// }
 	return (0);

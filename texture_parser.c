@@ -6,7 +6,7 @@
 /*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:56:21 by aball             #+#    #+#             */
-/*   Updated: 2023/01/22 22:37:09 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/01/25 12:23:14 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,19 @@ static int check_fds(t_data *data)
 
 static void	set_up_ptr(t_data *data)
 {
-	int	h;
-	int	w;
-
-	h = 32;
-	w = 32;
-	data->north.xpm = mlx_xpm_file_to_image(data->mlx, data->north.path, &w, &h);
+	data->north.xpm = mlx_xpm_file_to_image(data->mlx, data->north.path, &data->north.width, &data->north.height);
 	data->north.addr = mlx_get_data_addr(data->north.xpm, &data->north.bits, &data->north.line, &data->north.endian);
-	data->south.xpm = mlx_xpm_file_to_image(data->mlx, data->south.path, &w, &h);
+	data->south.xpm = mlx_xpm_file_to_image(data->mlx, data->south.path, &data->south.width, &data->south.height);
 	data->south.addr = mlx_get_data_addr(data->south.xpm, &data->south.bits, &data->south.line, &data->south.endian);
-	data->east.xpm = mlx_xpm_file_to_image(data->mlx, data->east.path, &w, &h);
+	data->east.xpm = mlx_xpm_file_to_image(data->mlx, data->east.path, &data->east.width, &data->east.height);
 	data->east.addr = mlx_get_data_addr(data->east.xpm, &data->east.bits, &data->east.line, &data->east.endian);
-	data->west.xpm = mlx_xpm_file_to_image(data->mlx, data->west.path, &w, &h);
+	data->west.xpm = mlx_xpm_file_to_image(data->mlx, data->west.path, &data->west.width, &data->west.height);
 	data->west.addr = mlx_get_data_addr(data->west.xpm, &data->west.bits, &data->west.line, &data->west.endian);
+	data->east.step = data->east.height / 300;
+	data->west.step = data->west.height / 300;
+	data->north.step = data->north.height / 300;
+	data->south.step = data->south.height / 300;
+	printf("east step: %d", data->east.step);
 }
 
 int	parse_texture(t_data *data)

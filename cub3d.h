@@ -62,11 +62,14 @@ typedef struct s_texture
 	char	**file;
 	void	*xpm;
 	char	*addr;
+	int		x;
+	int		y;
 	int		height;
 	int		width;
 	int		bits;
 	int		line;
 	int		endian;
+	int		step;
 }			t_texture;
 
 typedef struct s_map

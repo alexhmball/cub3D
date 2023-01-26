@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:40 by aball             #+#    #+#             */
-/*   Updated: 2023/01/24 19:19:20 by aball            ###   ########.fr       */
+/*   Updated: 2023/01/25 12:45:11 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,31 @@ void place_ceiling_floor(t_data *data)
 	int	iy;
 	int	up;
 	int down;
+	int	gradiant;
 
+	(void)iy;
 	x = 0;
 	iy = 0;
 	ix = 0;
+	gradiant = 500;
 	down = (SCREEN_H / 3);
 	up = (SCREEN_H / 3) + (down);
+	data->north.x = 0;
+	data->north.y = 0;
+	data->south.x = 0;
+	data->south.y = 0;
+	data->east.x = 0;
+	data->east.y = 0;
+	data->west.x = 0;
+	data->west.y = 0;
+	printf("diff: %d\v\n", up - down);
 	while (x < SCREEN_W)
 	{
 		y = 0;
 		iy = 0;
+		data->south.y = 0;
+		data->north.y = 0;
+		data->east.y = 0;
 		while (y < SCREEN_H)
 		{
 			if (y < SCREEN_H / 2)
@@ -56,27 +71,27 @@ void place_ceiling_floor(t_data *data)
 			else
 				my_mlx_pixel_put(data, x, y, data->floor);
 			if (x > 200 && y > down && x < 500 && y < up)
-				my_mlx_pixel_put(data, x, y, get_colour(&data->north, ix, iy++));
+				my_mlx_pixel_put(data, x, y, get_colour(&data->north, data->north.x, data->north.y += data->north.step));
 			if (x >= 500 && y > down && x < 800 && y < up)
-				my_mlx_pixel_put(data, x, y, get_colour(&data->east, ix, iy++));
+				my_mlx_pixel_put(data, x, y, get_colour(&data->east, data->east.x, data->east.y += data->east.step));
 			if (x >= 800 && y > down && x < 1100 && y < up)
-				my_mlx_pixel_put(data, x, y, get_colour(&data->south, ix, iy++));
-			if (x % 5 && y % 5)
+				my_mlx_pixel_put(data, x, y, get_colour(&data->south, data->south.x, data->south.y += data->south.step));
+			if (x % gradiant && y % gradiant)
 				my_mlx_pixel_put(data, x, y, 0x000000);
 			y++;
 		}
 		x++;
 		ix++;
+		data->north.x += data->north.step;
+		data->south.x += data->south.step;
+		data->east.x += data->east.step;
+		if (gradiant > 1 && x % 2 == 0)
+			gradiant--;
 		if (x % 3 == 0 && x > 200 && x < 500)
 		{
 			up--;
 			down--;
 		}
-		// else if (x > 500 && x < 800 && x % 10)
-		// {
-		// 	up--;
-		// 	down--;
-		// }
 		else if (x > 800 && x < 1100 && x % 3 == 0)
 		{
 			up++;
