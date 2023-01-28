@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 20:06:42 by aball             #+#    #+#             */
-/*   Updated: 2023/01/23 17:01:38 by aball            ###   ########.fr       */
+/*   Updated: 2023/01/28 21:09:15 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,22 @@ int	check_valid(char c, t_data *data, int x, int y)
 void	set_direction(t_data *data)
 {
 	if (data->player.direction == 'N')
-		data->player.degree = 0;
+		data->player.degree = 90;
 	if (data->player.direction == 'W')
 		data->player.degree = 90;
 	if (data->player.direction == 'S')
 		data->player.degree = 180;
 	if (data->player.direction == 'E')
 		data->player.degree = 270;
+}
+
+double	check_angle(double angle)
+{
+	if (angle < 0)
+		angle += 360;
+	if (angle > 360)
+		angle -= 360;
+	return (angle);
 }
 
 int	parse_player(t_data *data)

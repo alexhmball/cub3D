@@ -130,6 +130,10 @@ int		parse_player(t_data *data);
 double	radtodeg(double rad);
 double	degtorad(double deg);
 double	distance(double x, double y, t_player *player);
+double	check_angle(double angle);
+void	drawline(int x0, int y0, int x1, int y1, t_data *data);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int colour);
+void	cast_ray(t_data *data);
 
 // testing hash maps
 // unsigned int	hash_key(char *str);
