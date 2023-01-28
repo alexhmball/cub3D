@@ -6,7 +6,7 @@
 /*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 20:06:42 by aball             #+#    #+#             */
-/*   Updated: 2023/01/28 21:09:15 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/01/29 01:52:30 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ int	check_valid(char c, t_data *data, int x, int y)
 void	set_direction(t_data *data)
 {
 	if (data->player.direction == 'N')
-		data->player.degree = 90;
-	if (data->player.direction == 'W')
-		data->player.degree = 90;
-	if (data->player.direction == 'S')
-		data->player.degree = 180;
-	if (data->player.direction == 'E')
 		data->player.degree = 270;
+	if (data->player.direction == 'W')
+		data->player.degree = 180;
+	if (data->player.direction == 'S')
+		data->player.degree = 90;
+	if (data->player.direction == 'E')
+		data->player.degree = 0;
 }
 
 double	check_angle(double angle)
@@ -62,18 +62,18 @@ int	parse_player(t_data *data)
 	int	x;
 	int	y;
 
-	x = 0;
+	y = 0;
 	data->player.direction = 0;
-	while (data->map.map[x])
+	while (data->map.map[y])
 	{
-		y = 0;
-		while (data->map.map[x][y])
+		x = 0;
+		while (data->map.map[y][x])
 		{
-			if (!check_valid(data->map.map[x][y], data, x, y))
+			if (!check_valid(data->map.map[y][x], data, x, y))
 				return (0);
-			y++;
+			x++;
 		}
-		x++;
+		y++;
 	}
 	set_direction(data);
 	return (1);

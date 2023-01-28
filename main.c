@@ -6,7 +6,7 @@
 /*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:43 by aball             #+#    #+#             */
-/*   Updated: 2023/01/28 19:39:45 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/01/29 01:43:31 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@ int	key_press(int keycode, void *data)
 	(void)keycode;
 	if (keycode == ESC)
 		exit_prog(data);
-	if (keycode == A)
-		data2->player.y_pos -= 0.1;
-	if (keycode == D)
-		data2->player.y_pos += 0.1;
 	if (keycode == W)
-		data2->player.x_pos -= 0.1;
+		data2->player.y_pos -= 0.1;
 	if (keycode == S)
+		data2->player.y_pos += 0.1;
+	if (keycode == A)
+		data2->player.x_pos -= 0.1;
+	if (keycode == D)
 		data2->player.x_pos += 0.1;
 	if (keycode == LEFT)
-		data2->player.degree = check_angle(data2->player.degree - 0.1);
+		data2->player.degree = check_angle(data2->player.degree - 1);
 	if (keycode == RIGHT)
-		data2->player.degree = check_angle(data2->player.degree + 0.1);
+		data2->player.degree = check_angle(data2->player.degree + 1);
 	mlx_clear_window(data2->mlx, data2->win);
 	// mlx_put_image_to_window(data2->mlx, data2->win, data2->north.xpm, 0, 0);
 	place_ceiling_floor(data2);

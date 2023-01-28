@@ -6,7 +6,7 @@
 /*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:40 by aball             #+#    #+#             */
-/*   Updated: 2023/01/28 21:24:10 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/01/29 00:28:21 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void place_ceiling_floor(t_data *data)
 		x++;
 		pixel_x += 64;
 	}
-	place_square(data->player.y_pos * 64, data->player.x_pos * 64, data, 10, 0xffffff);
+	place_square(data->player.x_pos * 64, data->player.y_pos * 64, data, 10, 0xffffff);
 	// drawline(0, 0, 100, 100, data);
 	cast_ray(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);

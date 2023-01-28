@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:29:31 by aball             #+#    #+#             */
-/*   Updated: 2022/12/08 19:36:16 by aball            ###   ########.fr       */
+/*   Updated: 2023/01/28 21:54:34 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_swap(void *a, void *b)
 {
-	void	*temp;
-
-	temp = a;
-	a = b;
-	b = temp;
+	int	temp;
+	
+	temp = *(int *)a;
+	*(int *)a = *(int *)b;
+	*(int *)b = temp;
 }
