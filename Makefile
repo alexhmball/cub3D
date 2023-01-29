@@ -5,7 +5,7 @@ ARC = $(shell uname)
 GNL = get_next_line.c get_next_line_utils.c
 
 SCRS = main.c map_parser.c texture_parser.c test.c hextoi.c rgb.c player.c math_utils.c \
-	ray_trace.c
+	ray_trace.c move.c
 
 SCRS += $(addprefix get_next_line/, $(GNL))
 

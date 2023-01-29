@@ -6,7 +6,7 @@
 /*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:40 by aball             #+#    #+#             */
-/*   Updated: 2023/01/29 00:28:21 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/01/30 03:19:22 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,24 @@ void place_ceiling_floor(t_data *data)
 	// int	limit;
 
 	x = 0;
+	y = 0;
 	pixel_x = 0;
 	pixel_y = 0;
-	place_square(0, 0, data, SCREEN_H, 0x000000);
-	place_square(SCREEN_H, 0, data, SCREEN_H, 0x000000);
+	while (y < SCREEN_H)
+	{
+		x = 0;
+		while (x < SCREEN_W)
+		{
+			if (y < SCREEN_H / 2)
+				my_mlx_pixel_put(data, x, y, data->ceiling);
+			else
+				my_mlx_pixel_put(data, x, y, data->floor);
+			x++;
+		}
+		y++;
+	}
+	x = 0;
+	y = 0;
 	while (data->map.map[x])
 	{
 		y = 0;
@@ -70,7 +84,7 @@ void place_ceiling_floor(t_data *data)
 		{
 			if (data->map.map[x][y] == '1')
 			{
-				place_square(pixel_y, pixel_x, data, 64, 0x00FF00);
+				// place_square(pixel_y, pixel_x, data, 64, 0x00FF00);
 			}
 			y++;
 			pixel_y += 64;
@@ -78,7 +92,7 @@ void place_ceiling_floor(t_data *data)
 		x++;
 		pixel_x += 64;
 	}
-	place_square(data->player.x_pos * 64, data->player.y_pos * 64, data, 10, 0xffffff);
+	// place_square((data->player.x_pos) * 64, (data->player.y_pos) * 64, data, 10, 0xffffff);
 	// drawline(0, 0, 100, 100, data);
 	cast_ray(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);

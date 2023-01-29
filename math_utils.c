@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   math_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:53:37 by aball             #+#    #+#             */
-/*   Updated: 2023/01/23 18:30:10 by aball            ###   ########.fr       */
+/*   Updated: 2023/01/29 23:08:44 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ double	radtodeg(double rad)
 	return (deg);
 }
 
-double	distance(double x, double y, t_player *player)
+double	distance(double x, double y, double x2, double y2)
 {
 	double	dist;
 
-	dist = sqrt(pow((x - player->x_pos), 2) + pow(y - player->y_pos, 2));
+	dist = sqrt(pow((x - x2), 2) + pow(y - y2, 2));
 	return (dist);
 }
 
