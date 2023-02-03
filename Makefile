@@ -5,7 +5,7 @@ ARC = $(shell uname)
 GNL = get_next_line.c get_next_line_utils.c
 
 SCRS = main.c map_parser.c texture_parser.c test.c hextoi.c rgb.c player.c math_utils.c \
-	ray_trace.c move.c
+	ray_cast.c move.c
 
 SCRS += $(addprefix get_next_line/, $(GNL))
 
@@ -30,7 +30,7 @@ endif
 all: $(NAME)
 
 $(NAME): libft mlx ${OBJS}
-	gcc -g -Wall -Wextra -Werror -D ${OS} ${OBJS} libft/libft.a ${LINKS} -lm -o ${NAME}
+	gcc -fsanitize=address -g -Wall -Wextra -Werror -D ${OS} ${OBJS} libft/libft.a ${LINKS} -lm -o ${NAME}
 
 %.o:%.c
 	gcc -g -Wall -Wextra -Werror -D ${OS} -c $< -o ${<:c=o}

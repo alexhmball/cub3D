@@ -64,8 +64,16 @@ typedef struct s_ray
 {
 	double	x;
 	double	y;
-	double	prev_x;
-	double	prev_y;
+	double	vx;
+	double	vy;
+	double	hx;
+	double	hy;
+	double	hx_inc;
+	double	hy_inc;
+	double	vx_inc;
+	double	vy_inc;
+	double	vert_len;
+	double	horz_len;
 	double	angle;
 }		t_ray;
 
