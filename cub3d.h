@@ -45,10 +45,10 @@
 # define BLOCK 64
 # define HORIZONTAL 0
 # define VERTICAL 1
-# define NORTH 0x0000FF
-# define SOUTH 0x00FF00
-# define EAST 0xFF0000
-# define WEST 0xFFFF00
+# define NORTH 0xff00ff
+# define SOUTH 0x0f000f
+# define EAST 0x000000
+# define WEST 0x00ff00
 
 // testing hashmaps
 // # define SIZE 256
@@ -152,6 +152,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int colour);
 void	cast_ray(t_data *data);
 int		find_quadrant(double degree);
 void	move_player_w(t_data *data, char direction);
+int		get_colour(t_texture *img, int x, int y);
 
 // testing hash maps
 // unsigned int	hash_key(char *str);

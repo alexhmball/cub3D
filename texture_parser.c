@@ -6,7 +6,7 @@
 /*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:56:21 by aball             #+#    #+#             */
-/*   Updated: 2023/01/25 12:23:14 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/02/06 02:41:50 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,14 @@ static void	set_up_ptr(t_data *data)
 	data->east.addr = mlx_get_data_addr(data->east.xpm, &data->east.bits, &data->east.line, &data->east.endian);
 	data->west.xpm = mlx_xpm_file_to_image(data->mlx, data->west.path, &data->west.width, &data->west.height);
 	data->west.addr = mlx_get_data_addr(data->west.xpm, &data->west.bits, &data->west.line, &data->west.endian);
-	data->east.step = data->east.height / 300;
-	data->west.step = data->west.height / 300;
-	data->north.step = data->north.height / 300;
-	data->south.step = data->south.height / 300;
-	printf("east step: %d", data->east.step);
+	data->east.y = 0;
+	data->west.y = 0;
+	data->north.y = 0;
+	data->south.y = 0;
+	data->east.x = 0;
+	data->west.x = 0;
+	data->north.x = 0;
+	data->south.x = 0;
 }
 
 int	parse_texture(t_data *data)

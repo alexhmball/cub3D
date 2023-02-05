@@ -6,7 +6,7 @@
 /*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:43 by aball             #+#    #+#             */
-/*   Updated: 2023/01/29 23:50:38 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/02/06 02:20:56 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	key_press(int keycode, void *data)
 	mlx_clear_window(data2->mlx, data2->win);
 	// mlx_put_image_to_window(data2->mlx, data2->win, data2->north.xpm, 0, 0);
 	place_ceiling_floor(data2);
-	printf("%d\n", keycode);
+	// printf("%d\n", keycode);
 	return (0);
 }
 

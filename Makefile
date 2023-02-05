@@ -30,10 +30,10 @@ endif
 all: $(NAME)
 
 $(NAME): libft mlx ${OBJS}
-	gcc -fsanitize=address -g -Wall -Wextra -Werror -D ${OS} ${OBJS} libft/libft.a ${LINKS} -lm -o ${NAME}
+	gcc -O3 -Wall -Wextra -Werror -D ${OS} ${OBJS} libft/libft.a ${LINKS} -lm -o ${NAME}
 
 %.o:%.c
-	gcc -g -Wall -Wextra -Werror -D ${OS} -c $< -o ${<:c=o}
+	gcc -O3 -Wall -Wextra -Werror -D ${OS} -c $< -o ${<:c=o}
 
 clean:
 	rm -fr ${OBJS}
