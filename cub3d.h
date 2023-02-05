@@ -151,7 +151,7 @@ void	drawline(int x0, int y0, int x1, int y1, t_data *data);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int colour);
 void	cast_ray(t_data *data);
 int		find_quadrant(double degree);
-void	move_player_w(t_data *data, char direction);
+void	move_player(t_data *data, char direction);
 int		get_colour(t_texture *img, int x, int y);
 
 // testing hash maps

@@ -6,7 +6,7 @@
 /*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:43 by aball             #+#    #+#             */
-/*   Updated: 2023/02/06 02:20:56 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/02/06 03:27:52 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int	key_press(int keycode, void *data)
 	if (keycode == ESC)
 		exit_prog(data);
 	if (keycode == A)
-		move_player_w(data2, 'A');
+		move_player(data2, 'A');
 	if (keycode == D)
-		move_player_w(data2, 'D');
+		move_player(data2, 'D');
 	if (keycode == S)
-		move_player_w(data2, 'S');
+		move_player(data2, 'S');
 	if (keycode == W)
-		move_player_w(data2, 'W');
+		move_player(data2, 'W');
 	if (keycode == LEFT)
 		data2->player.degree = check_angle(data2->player.degree - 1);
 	if (keycode == RIGHT)
