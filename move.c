@@ -102,7 +102,7 @@ void	move_player(t_data *data, char direction)
 	int	quad;
 
 	quad = find_quadrant(data->player.degree);
-	// printf("quad: %d angle: %f\n", quad, data->player.degree);
+	printf("quad: %d angle: %f\n", quad, data->player.degree);
 	if (quad == 1)
 		move_quad_one(data, direction);
 	if (quad == 2)

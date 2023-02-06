@@ -38,7 +38,7 @@
 # include <math.h>
 
 
-# define FOV 90
+# define FOV 60
 # define SCREEN_W FOV * 20
 # define SCREEN_H 1000
 # define STEP 1
