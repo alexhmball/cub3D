@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:43 by aball             #+#    #+#             */
-/*   Updated: 2023/02/06 03:27:52 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/02/07 07:30:18 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,11 @@ int	key_press(int keycode, void *data)
 	if (keycode == W)
 		move_player(data2, 'W');
 	if (keycode == LEFT)
-		data2->player.degree = check_angle(data2->player.degree - 1);
+		data2->player.degree = check_angle(data2->player.degree - 1.5);
 	if (keycode == RIGHT)
-		data2->player.degree = check_angle(data2->player.degree + 1);
+		data2->player.degree = check_angle(data2->player.degree + 1.5);
 	mlx_clear_window(data2->mlx, data2->win);
-	// mlx_put_image_to_window(data2->mlx, data2->win, data2->north.xpm, 0, 0);
 	place_ceiling_floor(data2);
-	// printf("%d\n", keycode);
 	return (0);
 }
 
