@@ -6,7 +6,7 @@
 /*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 12:41:46 by ballzball         #+#    #+#             */
-/*   Updated: 2023/02/06 16:23:55 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/02/06 21:54:54 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ void draw_wall_slice(t_data *data, int x)
 		start = 0;
 	if (end > SCREEN_H)
 		end = SCREEN_H;
-	texture->step = (double)texture->height / (double)w_height;
+	texture->step = (double)texture->height / ((double)w_height);
 	texture->y = 0;
 	while (start < end)
 	{
