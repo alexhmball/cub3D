@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   math_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:53:37 by aball             #+#    #+#             */
-/*   Updated: 2023/01/29 23:08:44 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/02/07 10:52:06 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,4 @@ double	distance(double x, double y, double x2, double y2)
 
 	dist = sqrt(pow((x - x2), 2) + pow(y - y2, 2));
 	return (dist);
-}
-
-double	dist_to_projection(void)
-{
-	return ((SCREEN_W / 2) / tan(FOV));
-}
-
-double	projected_height(double plane, double distance)
-{
-	return ((BLOCK / distance) * plane);
 }

@@ -39,10 +39,10 @@
 
 
 # define FOV 60
-# define SCREEN_W FOV * 20
-# define SCREEN_H 1000
+# define SCREEN_W FOV * 100
+# define SCREEN_H FOV * 50
 # define STEP 1
-# define BLOCK 64
+# define MINIBLOCK 20
 # define HORIZONTAL 0
 # define VERTICAL 1
 # define NORTH 0xff00ff
@@ -87,13 +87,14 @@ typedef struct s_texture
 	void	*xpm;
 	char	*addr;
 	int		x;
-	int		y;
+	double	y;
 	int		height;
 	int		width;
 	int		bits;
 	int		line;
 	int		endian;
-	int		step;
+	int		xstep;
+	double		ystep;
 }			t_texture;
 
 typedef struct s_map
@@ -153,6 +154,7 @@ void	cast_ray(t_data *data);
 int		find_quadrant(double degree);
 void	move_player(t_data *data, char direction);
 int		get_colour(t_texture *img, int x, int y);
+void	place_square(int x, int y, t_data *data, int size, int colour);
 
 // testing hash maps
 // unsigned int	hash_key(char *str);

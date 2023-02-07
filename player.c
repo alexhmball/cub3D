@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 20:06:42 by aball             #+#    #+#             */
-/*   Updated: 2023/02/06 01:50:23 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/02/07 11:25:40 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	check_valid(char c, t_data *data, int x, int y)
 			data->player.direction = c;
 			data->player.x_pos = x;
 			data->player.y_pos = y;
+			data->map.map[y][x] = '0';
 		}
 		else
 		{
