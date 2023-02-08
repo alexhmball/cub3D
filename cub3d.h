@@ -39,8 +39,8 @@
 
 
 # define FOV 60
-# define SCREEN_W FOV * 100
-# define SCREEN_H FOV * 50
+# define SCREEN_W FOV * 20
+# define SCREEN_H FOV * 10
 # define STEP 1
 # define MINIBLOCK 20
 # define HORIZONTAL 0

@@ -6,7 +6,7 @@
 /*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 12:41:46 by ballzball         #+#    #+#             */
-/*   Updated: 2023/02/07 22:16:57 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/02/08 08:52:46 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,7 +191,7 @@ void cast_ray(t_data *data)
 	data->player.ray.angle = check_angle(data->player.degree - FOV / 2);
 	rays = 0;
 	reset_texture(data);
-	while (rays < FOV * 100)
+	while (rays < FOV * 20)
 	{
 		data->player.ray.x = data->player.x_pos;
 		data->player.ray.y = data->player.y_pos;
@@ -203,6 +203,6 @@ void cast_ray(t_data *data)
 			;
 		draw_wall_slice(data, rays);
 		rays++;
-		data->player.ray.angle = check_angle(data->player.ray.angle + 0.01);
+		data->player.ray.angle = check_angle(data->player.ray.angle + 0.05);
 	}
 }

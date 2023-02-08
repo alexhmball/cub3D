@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:40 by aball             #+#    #+#             */
-/*   Updated: 2023/02/07 11:01:12 by aball            ###   ########.fr       */
+/*   Updated: 2023/02/08 08:50:04 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int colour)
 {
 	char	*dst;
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel >> 3));
 	*(unsigned int*)dst = colour;
 }
 
@@ -26,7 +26,7 @@ int	get_colour(t_texture *img, int x, int y)
 	char *pixel;
 	int	colour;
 
-	pixel = img->addr + (y * img->line + x * (img->bits / 8));
+	pixel = img->addr + (y * img->line + x * (img->bits >> 3));
 	colour = *(unsigned int *)pixel;
 	return (colour);
 }
