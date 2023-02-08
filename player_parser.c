@@ -1,21 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rgb.c                                              :+:      :+:    :+:   */
+/*   player_parser.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/22 18:42:41 by aball             #+#    #+#             */
-/*   Updated: 2023/02/08 17:55:55 by aball            ###   ########.fr       */
+/*   Created: 2023/02/04 13:04:37 by aalnaqbi          #+#    #+#             */
+/*   Updated: 2023/02/08 18:24:47 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	rgbtoi(int r, int g, int b)
+void	get_player(t_map *map)
 {
-	int	colour;
+	int	row;
+	int	col;
 
-	colour = (r << 16) + (g << 8) + b;
-	return (colour);
+	row = 0;
+	while (map->map[row])
+	{
+		col = 0;
+		while (map->map[row][col])
+		{
+			if (ft_charcheck(map->map[row][col], "NSEW"))
+			{
+				map->player.x_pos = row;
+				map->player.y_pos = col;
+				map->map[row][col] = '0';
+				map->player.direction = map->map[row][col];
+				return ;
+			}
+			col++;
+		}
+		row++;
+	}
 }

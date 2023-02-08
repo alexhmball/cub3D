@@ -1,37 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math_utils.c                                       :+:      :+:    :+:   */
+/*   cub3D.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 14:53:37 by aball             #+#    #+#             */
-/*   Updated: 2023/02/08 17:55:55 by aball            ###   ########.fr       */
+/*   Created: 2023/01/31 20:57:58 by aalnaqbi          #+#    #+#             */
+/*   Updated: 2023/02/08 18:03:49 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-double	degtorad(double deg)
+void	ft_free2darray(char **c)
 {
-	double	rad;
+	int	i;
 
-	rad = deg * (M_PI / 180);
-	return (rad);
+	i = -1;
+	if (c)
+	{
+		while (c[++i])
+			free(c[i]);
+		free(c);
+	}
 }
 
-double	radtodeg(double rad)
+void ft_free(t_data *data)
 {
-	double	deg;
+	free(data->east.path);
+	free(data->north.path);
+	free(data->south.path);
+	free(data->west.path);
+	ft_free2darray(data->cub_file);
+	ft_free2darray(data->map.map);
 
-	deg = rad * (180 / M_PI);
-	return (deg);
 }
 
-double	distance(double x, double y, double x2, double y2)
-{
-	double	dist;
+// int	main(int ac, char **av)
+// {
+// 	t_data	data;
+// 	data.map.file_name = av[1];
+// 	parse_cub(&data, ac, av);
+// 	ft_free(&data);
 
-	dist = sqrt(pow((x - x2), 2) + pow(y - y2, 2));
-	return (dist);
-}
+// }

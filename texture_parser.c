@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_parser.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:56:21 by aball             #+#    #+#             */
-/*   Updated: 2023/02/06 16:03:11 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/02/08 18:18:18 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,12 @@ static int check_fds(t_data *data)
 	return (1);
 }
 
-static void	set_up_ptr(t_data *data)
+void	set_up_ptr(t_data *data)
 {
+	printf("%s\n", data->north.path);
+	printf("%s\n", data->south.path);
+	printf("%s\n", data->east.path);
+	printf("%s\n", data->west.path);
 	data->north.xpm = mlx_xpm_file_to_image(data->mlx, data->north.path, &data->north.width, &data->north.height);
 	data->north.addr = mlx_get_data_addr(data->north.xpm, &data->north.bits, &data->north.line, &data->north.endian);
 	data->south.xpm = mlx_xpm_file_to_image(data->mlx, data->south.path, &data->south.width, &data->south.height);

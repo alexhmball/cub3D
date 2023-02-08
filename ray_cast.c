@@ -6,11 +6,23 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 12:41:46 by ballzball         #+#    #+#             */
-/*   Updated: 2023/02/08 15:31:10 by aball            ###   ########.fr       */
+/*   Updated: 2023/02/08 18:02:24 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int two_d_strlen(char **str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i])
+		i++;
+	return (i);
+}
 
 int find_quadrant(double degree)
 {
