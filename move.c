@@ -36,7 +36,7 @@ int	check_collision(t_data *data, char direction)
 		return (1);
 	if ((int)ceil(wy) > two_d_strlen(data->map.map) - 1)
 		return (1);
-	if ((size_t)ceil(wx) > ft_strlen(data->map.map[(int)ceil(wy)]) - 1)
+	if ((int)ceil(wx) > ft_strlen(data->map.map[(int)ceil(wy)]) - 1)
 		return (1);
 	if (data->map.map[(int)ceil(wy)][(int)ceil(wx)] == 1)
 		return (1);

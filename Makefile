@@ -1,13 +1,26 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/02/08 17:54:03 by aball             #+#    #+#              #
+#    Updated: 2023/02/09 01:51:57 by ballzball        ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = cub3D
 
 ARC = $(shell uname)
 
-GNL = get_next_line.c get_next_line_utils.c
+# GNL = get_next_line.c get_next_line_utils.c
 
-SCRS = main.c map_parser.c texture_parser.c test.c hextoi.c rgb.c player.c math_utils.c \
-	ray_cast.c move.c
+SCRS = main.c test.c hextoi.c rgb.c player.c math_utils.c \
+	ray_cast.c move.c walls.c cub3D.c utils.c utils2.c gnl_utils.c parse_cub.c map.c \
+	map2.c textures.c fc.c ft_split2.c player_parser.c texture_parser.c
 
-SCRS += $(addprefix get_next_line/, $(GNL))
+# SCRS += $(addprefix get_next_line/, $(GNL))
 
 OBJS = ${SCRS:c=o}
 
@@ -29,27 +42,22 @@ endif
 
 all: $(NAME)
 
-$(NAME): libft mlx ${OBJS}
-	gcc -O3 -Wall -Wextra -Werror -D ${OS} ${OBJS} libft/libft.a ${LINKS} -lm -o ${NAME}
+$(NAME):  mlx ${OBJS}
+	gcc -O3 -Wall -Wextra -Werror -D ${OS} ${OBJS} ${LINKS} -lm -o ${NAME}
 
 %.o:%.c
-	gcc -O3 -Wall -Wextra -Werror -D ${OS} -c $< -o ${<:c=o}
+	gcc -O3 -g -Wall -Wextra -Werror -D ${OS} -c $< -o ${<:c=o}
 
 clean:
 	rm -fr ${OBJS}
 	make clean -C ${LIBDIR}
-	make clean -C libft
 
 fclean: clean
 	rm -fr ${NAME}
-	make fclean -C libft
 
 re: fclean all
 
 mlx:
 	make -C ${LIBDIR}
-
-libft:
-	make -C libft
 
 .PHONY: all re clean fclean mlx libft

@@ -6,7 +6,7 @@
 /*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:40 by aball             #+#    #+#             */
-/*   Updated: 2023/02/08 08:50:04 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/02/09 02:24:31 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,45 +53,47 @@ void place_ceiling_floor(t_data *data)
 {
 	int	x;
 	int	y;
-	int	pixel_x;
-	int	pixel_y;
+	// int	pixel_x;
+	// int	pixel_y;
 	// int	limit;
 
 	x = 0;
 	y = 0;
-	pixel_x = 0;
-	pixel_y = 0;
+	// pixel_x = 0;
+	// pixel_y = 0;
+	// mlx_destroy_image(data->mlx, data->img);
+	// data->img = mlx_new_image(data->mlx, SCREEN_W, SCREEN_H);
 	while (y < SCREEN_H)
 	{
 		x = 0;
 		while (x < SCREEN_W)
 		{
 			if (y < SCREEN_H / 2)
-				my_mlx_pixel_put(data, x, y, data->ceiling);
+				my_mlx_pixel_put(data, x, y, 0xff0f0f);
 			else
-				my_mlx_pixel_put(data, x, y, data->floor);
+				my_mlx_pixel_put(data, x, y, 0x00ff00);
 			x++;
 		}
 		y++;
 	}
-	x = 0;
-	y = 0;
-	while (data->map.map[x])
-	{
-		y = 0;
-		pixel_y = 0;
-		while (data->map.map[x][y])
-		{
-			if (data->map.map[x][y] == '1')
-			{
-				// place_square(pixel_y, pixel_x, data, 64, 0x00FF00);
-			}
-			y++;
-			pixel_y += 64;
-		}
-		x++;
-		pixel_x += 64;
-	}
+	// x = 0;
+	// y = 0;
+	// while (data->map.map[x])
+	// {
+	// 	y = 0;
+	// 	pixel_y = 0;
+	// 	while (data->map.map[x][y])
+	// 	{
+	// 		if (data->map.map[x][y] == '1')
+	// 		{
+	// 			// place_square(pixel_y, pixel_x, data, 64, 0x00FF00);
+	// 		}
+	// 		y++;
+	// 		pixel_y += 64;
+	// 	}
+	// 	x++;
+	// 	pixel_x += 64;
+	// }
 	// place_square(data->player.x_pos * 64, data->player.y_pos * 64, data, 10, 0xffffff);
 	cast_ray(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
