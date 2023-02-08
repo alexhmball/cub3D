@@ -1,12 +1,14 @@
-NO ./textures/Tile_07.xpm
-WE ./textures/Tile_20.xpm
-EA ./textures/Tile_20.xpm
-SO ./textures/Tile_07.xpm
+NO ./textures/Bricks_05.xpm
+WE ./textures/Bricks_05.xpm
+EA ./textures/Bricks_05.xpm
+SO ./textures/Bricks_05.xpm
 
 F 200,200,240
 C 240,200,240
 
 1 11 1 1 1 1 1
 11001010101011
+10000000000001
 10N00000000001
+10000000000001
 11111111111111

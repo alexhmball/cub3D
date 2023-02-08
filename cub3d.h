@@ -41,24 +41,6 @@
 # define FOV 60
 # define SCREEN_W FOV * 20
 # define SCREEN_H FOV * 20
-# define STEP 1
-# define MINIBLOCK 20
-# define HORIZONTAL 0
-# define VERTICAL 1
-# define NORTH 0xff00ff
-# define SOUTH 0x0f000f
-# define EAST 0x000000
-# define WEST 0x00ff00
-
-// testing hashmaps
-// # define SIZE 256
-
-// typedef struct s_hex
-// {
-// 	int		colour;
-// 	char	*key;
-// 	struct s_hex	*next;
-// }			t_hex;
 
 typedef struct s_ray
 {
@@ -148,19 +130,15 @@ double	radtodeg(double rad);
 double	degtorad(double deg);
 double	distance(double x, double y, double x2, double y2);
 double	check_angle(double angle);
-void	drawline(int x0, int y0, int x1, int y1, t_data *data);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int colour);
 void	cast_ray(t_data *data);
 int		find_quadrant(double degree);
 void	move_player(t_data *data, char direction);
 int		get_colour(t_texture *img, int x, int y);
 void	place_square(int x, int y, t_data *data, int size, int colour);
-
-// testing hash maps
-// unsigned int	hash_key(char *str);
-// t_hex	**create_table(void);
-// t_hex	*create_hex(char *key, char *colour, t_hex *new);
-// t_hex	**insert_hex(t_hex **hash_table, char *key, char *colour);
-// int		find_hex_colour(char *key, t_hex **hash_table, int size);
+void	draw_wall_slice(t_data *data, int x);
+int		check_vert_walls(t_data *data);
+int		check_horiz_walls(t_data *data);
+t_texture	*find_texture(t_data *data, double *distv, double *disth, double *w_height);
 
 #endif
