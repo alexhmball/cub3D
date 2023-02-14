@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 02:52:55 by ballzball         #+#    #+#             */
-/*   Updated: 2023/02/09 02:52:56 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/02/14 14:23:06 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ typedef struct s_player
 	double	x_pos;
 	double	y_pos;
 	double	degree;
-	double	radian;
+	double	move;
 	t_ray	ray;
 	char	direction;
 }		t_player;

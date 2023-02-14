@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:43 by aball             #+#    #+#             */
-/*   Updated: 2023/02/14 13:40:07 by aball            ###   ########.fr       */
+/*   Updated: 2023/02/14 14:04:19 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	exit_prog(void *param)
 	mlx_destroy_image(data->mlx, data->east.xpm);
 	mlx_destroy_image(data->mlx, data->west.xpm);
 	mlx_destroy_window(data->mlx, data->win);
-	// mlx_destroy_display(data->mlx);
 	free(data->mlx);
 	exit (0);
 }

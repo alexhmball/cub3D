@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_parser.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:04:37 by aalnaqbi          #+#    #+#             */
-/*   Updated: 2023/02/08 19:52:47 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/02/14 14:06:25 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	get_player(t_map *map)
 		{
 			if (ft_charcheck(map->map[row][col], "NSEW"))
 			{
-				map->player->x_pos = col;
-				map->player->y_pos = row;
+				map->player->x_pos = col + 0.5;
+				map->player->y_pos = row + 0.5;
 				map->player->direction = map->map[row][col];
 				map->map[row][col] = '0';
 				return ;
