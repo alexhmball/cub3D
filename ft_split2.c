@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aalnaqbi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 21:26:33 by aalnaqbi          #+#    #+#             */
-/*   Updated: 2023/02/08 17:55:55 by aball            ###   ########.fr       */
+/*   Updated: 2023/02/03 21:26:34 by aalnaqbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,14 +117,4 @@ char	**ft_split(char *str, char *d)
 	}
 	splitted[words] = 0;
 	return (splitted);
-}
-
-void	free_split(char **tab)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (tab[i])
-		free(tab[i++]);
-	free(tab);
 }

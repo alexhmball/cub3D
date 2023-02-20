@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:43 by aball             #+#    #+#             */
-/*   Updated: 2023/02/14 14:04:19 by aball            ###   ########.fr       */
+/*   Updated: 2023/02/20 21:28:55 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,20 @@ int	main(int ac, char **av)
 
 		data.map.file_name = av[1];
 		data.map.player = &data.player;
+		int_data(&data);
 		parse_cub(&data, ac, av);
+	// 		printf("the north is [%s]\n", data.north.path);
+	// printf("the south is [%s]\n", data.south.path);
+	// printf("the east is [%s]\n", data.east.path);
+	// printf("the west is [%s]\n", data.west.path);
+	// 	printf("the floor color is [%d]\n", data.floor_int);
+	// printf("the floor color is [%d]\n", data.floor.r);
+	// printf("the floor color is [%d]\n", data.floor.g);
+	// printf("the floor color is [%d]\n", data.floor.b);
+	// printf("the celing color is [%d]\n", data.ceiling_int);
+	// printf("the celing color is [%d]\n", data.ceiling.r);
+	// printf("the celing color is [%d]\n", data.ceiling.g);
+	// printf("the celing color is [%d]\n", data.ceiling.b);
 		set_direction(&data);
 		data.mlx  = mlx_init();
 		data.win = mlx_new_window(data.mlx, SCREEN_W, SCREEN_H, "cub3d");

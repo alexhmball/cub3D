@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 20:59:46 by aalnaqbi          #+#    #+#             */
-/*   Updated: 2023/02/08 17:55:55 by aball            ###   ########.fr       */
+/*   Updated: 2023/02/20 21:20:04 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ char	*ft_strndup(char *s1, int n);
 char	**ft_split(char *str, char *d);
 void	free_split(char **tab);
 int		ft_atoi(const char *str);
-char	*ft_gnl(int fd);
+//char	*ft_gnl(int fd);
 int		ft_count_lines(char *filename);
 void	ft_get_cub_file(t_data *data);
 void	ft_check_texture(char **file, int *i);

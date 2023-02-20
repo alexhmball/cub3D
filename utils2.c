@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aalnaqbi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 18:36:18 by aalnaqbi          #+#    #+#             */
-/*   Updated: 2023/02/08 18:04:52 by aball            ###   ########.fr       */
+/*   Updated: 2023/02/03 18:36:23 by aalnaqbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "cub3d.h"
 
 char	*ft_strdup(char *s1)
@@ -38,7 +37,7 @@ int	check_new_line(char *str)
 char	*ft_strndup(char *s1, int n)
 {
 	char	*str;
-	int	i;
+	int		i;
 
 	i = 0;
 	str = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);

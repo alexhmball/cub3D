@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+         #
+#    By: aball <aball@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 17:54:03 by aball             #+#    #+#              #
-#    Updated: 2023/02/09 01:51:57 by ballzball        ###   ########.fr        #
+#    Updated: 2023/02/20 21:22:04 by aball            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,13 @@ NAME = cub3D
 
 ARC = $(shell uname)
 
-# GNL = get_next_line.c get_next_line_utils.c
+GNL = get_next_line.c get_next_line_utils.c
 
 SCRS = main.c test.c hextoi.c rgb.c player.c math_utils.c \
 	ray_cast.c move.c walls.c cub3D.c utils.c utils2.c gnl_utils.c parse_cub.c map.c \
-	map2.c textures.c fc.c ft_split2.c player_parser.c texture_parser.c
+	map2.c textures.c fc.c ft_split2.c player_parser.c texture_parser.c utils3.c
 
-# SCRS += $(addprefix get_next_line/, $(GNL))
+SCRS += $(addprefix get_next_line/, $(GNL))
 
 OBJS = ${SCRS:c=o}
 
@@ -43,7 +43,7 @@ endif
 all: $(NAME)
 
 $(NAME):  mlx ${OBJS}
-	gcc -O3 -Wall -Wextra -Werror -D ${OS} ${OBJS} ${LINKS} -lm -o ${NAME}
+	gcc -fsanitize=address -O3 -Wall -Wextra -Werror -D ${OS} ${OBJS} ${LINKS} -lm -o ${NAME}
 
 %.o:%.c
 	gcc -O3 -g -Wall -Wextra -Werror -D ${OS} -c $< -o ${<:c=o}

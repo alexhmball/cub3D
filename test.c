@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:40 by aball             #+#    #+#             */
-/*   Updated: 2023/02/14 14:02:23 by aball            ###   ########.fr       */
+/*   Updated: 2023/02/20 20:14:36 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void	place_ceiling_floor(t_data *data)
 		while (x < SCREEN_W)
 		{
 			if (y < SCREEN_H / 2)
-				my_mlx_pixel_put(data, x, y, 0xff0f0f);
+				my_mlx_pixel_put(data, x, y, data->ceiling_int);
 			else
-				my_mlx_pixel_put(data, x, y, 0x00ff00);
+				my_mlx_pixel_put(data, x, y, data->floor_int);
 			x++;
 		}
 		y++;

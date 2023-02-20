@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 02:52:55 by ballzball         #+#    #+#             */
-/*   Updated: 2023/02/14 21:07:16 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/02/20 21:28:22 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@
 # include <string.h>
 # include <errno.h>
 # include <math.h>
+# include "get_next_line/get_next_line.h"
 
 
 # define FOV 60
@@ -132,8 +133,8 @@ typedef struct s_data
 	char		**cub_file;
 	t_color		floor;
 	t_color		ceiling;
-	int			f;
-	int			c;
+	int			floor_int;
+	int			ceiling_int;
 	void		*mlx;
 	void		*win;
 	void		*img;
@@ -143,6 +144,8 @@ typedef struct s_data
 	int			bits_per_pixel;
 	int			line_length;
 	int			endian;
+	int			nl;
+	int			map_b;
 }			t_data;
 
 int		parse_map(t_data *data);
@@ -168,6 +171,8 @@ t_texture	*find_texture(t_data *data, double *distv, double *disth, double *w_he
 void	parse_cub(t_data *data, int ac, char **av);
 void	ft_check_arg(int ac, char **av);
 void	ft_perror(char *msg);
+void	ft_perror2(char *error, t_data *data);
+void	ft_perror3(char *error, char **str);
 int		ft_strlen(char *s);
 char	*ft_strnstr(char *haystack, char *needle, size_t len);
 int		ft_strcmp(char *s1, char *s2);
@@ -178,18 +183,18 @@ char	*ft_strndup(char *s1, int n);
 char	**ft_split(char *str, char *d);
 void	free_split(char **tab);
 int		ft_atoi(const char *str);
-char	*ft_gnl(int fd);
+// char	*ft_gnl(int fd);
 int		ft_count_lines(char *filename);
 void	ft_get_cub_file(t_data *data);
-void	ft_check_texture(char **file, int *i);
+void	ft_check_texture(t_data *data);
 void	get_textures(t_data *data);
-void	ft_check_fc(char **file, int *i);
+void	ft_check_fc(t_data *data);
 void	get_fc(t_data *data);
-void	get_rgb(t_color *color, char **str);
-void	ft_check_cub_file(char **file);
+void	get_rgb(t_color *color, char **str, t_data *data);
+void	ft_check_cub_file(t_data *data);
 int		ft_charcheck(char c, char *set);
 void	ft_get_map(t_data *data);
-void	check_map(char **map);
+void	check_map(t_data *data);
 int		check_new_line(char *str);
 int		get_map_len(t_data *data);
 int		ft_player_space_detect(char **map, int row, int col);
@@ -204,5 +209,7 @@ int		check_wall(char **map, int row, int col);
 void	map_checks_(t_data *data, int row, int col);
 void 	ft_free(t_data *data);
 void	ft_free2darray(char **c);
+int		get_map_start(t_data *data);
+void	int_data(t_data *data);
 
 #endif

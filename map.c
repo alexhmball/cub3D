@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:47:43 by aalnaqbi          #+#    #+#             */
-/*   Updated: 2023/02/08 17:55:55 by aball            ###   ########.fr       */
+/*   Updated: 2023/02/20 21:08:39 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_player_space_detect(char **map, int row, int col)
 	return (0);
 }
 
-void	check_map(char **map)
+void	check_map(t_data *data)
 {
 	int	i;
 	int	j;
@@ -28,24 +28,24 @@ void	check_map(char **map)
 
 	i = 0;
 	player = 0;
-	while (map[i])
+	while (data->map.map[i])
 	{
 		j = 0;
-		while (map[i][j])
+		while (data->map.map[i][j])
 		{
-			if (!ft_charcheck(map[i][j], " 01NSEW"))
+			if (!ft_charcheck(data->map.map[i][j], " 01NSEW"))
 				ft_perror("Wrong char in map.\n");
-			if (ft_charcheck(map[i][j], "NSEW")
-				&& !ft_player_space_detect(map, i, j))
+			if (ft_charcheck(data->map.map[i][j], "NSEW")
+				&& !ft_player_space_detect(data->map.map, i, j))
 				player++;
 			j++;
 		}
 		i++;
 	}
 	if (!player)
-		ft_perror("No player in map file\n");
+		ft_perror2("No player in map file\n", data);
 	else if (player > 1)
-		ft_perror("More than 1 player found\n");
+		ft_perror2("More than 1 player found\n", data);
 }
 
 void	ft_get_map(t_data *data)
@@ -97,10 +97,10 @@ int	get_map_len(t_data *data)
 	return (len);
 }
 
-
-
 void	check_map_all(t_data *data)
 {
+	// if (ft_strcmp(data->map.map[0],"\n")==0)
+	// 	ft_perror("empty line in map Error!\n");
 	int	row;
 	int	col;
 
@@ -118,5 +118,3 @@ void	check_map_all(t_data *data)
 		row++;
 	}
 }
-
-
