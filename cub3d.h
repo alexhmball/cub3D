@@ -6,7 +6,7 @@
 /*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 02:52:55 by ballzball         #+#    #+#             */
-/*   Updated: 2023/02/09 02:56:14 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/02/14 21:07:16 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ typedef struct s_player
 	double	x_pos;
 	double	y_pos;
 	double	degree;
-	double	radian;
+	double	move;
 	t_ray	ray;
 	char	direction;
 }		t_player;

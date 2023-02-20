@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:43 by aball             #+#    #+#             */
-/*   Updated: 2023/02/09 02:39:18 by ballzball        ###   ########.fr       */
+/*   Updated: 2023/02/14 14:04:19 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	exit_prog(void *param)
 {
 	t_data *data;
-	
+
 	data = (t_data *)param;
 	ft_free(data);
 	mlx_clear_window(data->mlx, data->win);
@@ -25,7 +25,6 @@ int	exit_prog(void *param)
 	mlx_destroy_image(data->mlx, data->east.xpm);
 	mlx_destroy_image(data->mlx, data->west.xpm);
 	mlx_destroy_window(data->mlx, data->win);
-	mlx_destroy_display(data->mlx);
 	free(data->mlx);
 	exit (0);
 }
