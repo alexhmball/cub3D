@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 15:20:32 by aball             #+#    #+#             */
-/*   Updated: 2023/02/22 22:55:10 by aball            ###   ########.fr       */
+/*   Updated: 2023/02/22 23:12:58 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	draw_wall_slice(t_data *data, int x, t_texture *texture, double xo)
 	double	end;
 
 	texture = find_t(data, &w_height);
-	start = (SCREEN_H / 2.0) - (w_height / 2.0);
-	end = (SCREEN_H / 2.0) + (w_height / 2.0);
+	start = ((double)SCREEN_H / 2.0) - (w_height / 2.0);
+	end = ((double)SCREEN_H / 2.0) + (w_height / 2.0);
 	if (end > SCREEN_H)
 		end = SCREEN_H;
 	if (data->distv < data->disth)
