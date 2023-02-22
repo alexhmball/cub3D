@@ -6,17 +6,26 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:47:43 by aalnaqbi          #+#    #+#             */
-/*   Updated: 2023/02/20 21:08:39 by aball            ###   ########.fr       */
+/*   Updated: 2023/02/22 22:59:25 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_player_space_detect(char **map, int row, int col)
+// int	ft_player_space_detect(char **map, int row, int col)
+// {
+// 	if (map[row][col + 1] == ' ' || map[row][col - 1] == ' '
+// 		|| map[row + 1][col] == ' ' || map[row - 1][col] == ' ')
+// 		ft_perror("space around player\n");
+// 	return (0);
+// }
+
+int	ft_player_space_detect(t_data *data, int row, int col)
 {
-	if (map[row][col + 1] == ' ' || map[row][col - 1] == ' '
-		|| map[row + 1][col] == ' ' || map[row - 1][col] == ' ')
-		ft_perror("space around player\n");
+	if (data->map.map[row][col + 1] == ' ' || data->map.map[row][col - 1] == ' '
+		|| data->map.map[row + 1][col] == ' '
+		|| data->map.map[row - 1][col] == ' ')
+		ft_perror2("space around player\n", data);
 	return (0);
 }
 
@@ -34,9 +43,9 @@ void	check_map(t_data *data)
 		while (data->map.map[i][j])
 		{
 			if (!ft_charcheck(data->map.map[i][j], " 01NSEW"))
-				ft_perror("Wrong char in map.\n");
+				ft_perror2("Wrong char in map.\n", data);
 			if (ft_charcheck(data->map.map[i][j], "NSEW")
-				&& !ft_player_space_detect(data->map.map, i, j))
+				&& !ft_player_space_detect(data, i, j))
 				player++;
 			j++;
 		}
@@ -53,25 +62,25 @@ void	ft_get_map(t_data *data)
 	int		i;
 	int		j;
 
-	i = 0;
+	i = data->map_b;
 	j = 0;
 	data->map.row = get_map_len(data);
 	data->map.map = malloc(sizeof(char *) * (data->map.row + 1));
 	data->map.col = 0;
 	if (!data->map.map)
-		ft_perror("Malloc Error\n");
+		ft_perror2("Malloc Error\n", data);
 	while (data->cub_file[i])
 	{
-		if (data->cub_file[i][0] == '1'
-				|| data->cub_file[i][0] == ' '
-				|| data->cub_file[i][0] == '0')
+		if (data->cub_file[i][0] == '1' || data->cub_file[i][0] == ' '
+		|| data->cub_file[i][0] == '0')
 		{
-			data->map.map[j++] = ft_strndup(data->cub_file[i],
-					ft_strlen(data->cub_file[i]) - \
-					check_new_line(data->cub_file[i]));
+			data->map.map[j++] = ft_strndup(data->cub_file[i], \
+			ft_strlen(data->cub_file[i]) - check_new_line(data->cub_file[i]));
 			if (data->map.col < ft_strlen(data->map.map[j - 1]))
 				data->map.col = ft_strlen(data->map.map[j - 1]);
 		}
+		else
+			ft_perror2("Invalid map\n", data);
 		i++;
 	}
 	data->map.map[j] = 0;
@@ -99,8 +108,6 @@ int	get_map_len(t_data *data)
 
 void	check_map_all(t_data *data)
 {
-	// if (ft_strcmp(data->map.map[0],"\n")==0)
-	// 	ft_perror("empty line in map Error!\n");
 	int	row;
 	int	col;
 

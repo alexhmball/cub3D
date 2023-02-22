@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rgb.c                                              :+:      :+:    :+:   */
+/*   str.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/22 18:42:41 by aball             #+#    #+#             */
-/*   Updated: 2023/02/08 17:55:55 by aball            ###   ########.fr       */
+/*   Created: 2023/02/22 20:44:18 by aball             #+#    #+#             */
+/*   Updated: 2023/02/22 20:49:39 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	rgbtoi(int r, int g, int b)
+int	two_d_strlen(char **str)
 {
-	int	colour;
+	int	i;
 
-	colour = (r << 16) + (g << 8) + b;
-	return (colour);
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i])
+		i++;
+	return (i);
 }

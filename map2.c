@@ -85,17 +85,18 @@ int	get_map_start(t_data *data)
 	while (data->cub_file[i])
 	{
 		str = data->cub_file[i];
-		j = 0;
-		while (str[j])
+		j = -1;
+		while (str[++j])
 		{
 			if (str[j] == '1')
 				return (i);
-			else if (str[j] != '1' || str[j] == ' ')
+			if (str[j] == ' ')
+				j++;
+			else if (str[j] != '1' )
 			{
 				i++;
 				break ;
 			}	
-			j++;
 		}
 	}
 	ft_perror3("there is no map in cub file\n", data->cub_file);

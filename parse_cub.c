@@ -33,8 +33,6 @@ void	ft_get_cub_file(t_data *data)
 	close(fd);
 }
 
-
-
 void	ft_check_cub_file(t_data *data)
 {
 	ft_check_texture(data);
@@ -61,7 +59,8 @@ void	parse_cub(t_data *data, int ac, char **av)
 	ft_check_cub_file(data);
 	ft_get_map(data);
 	check_map(data);
-	get_textures(data);
+	get_textures1(data);
+	get_textures2(data);
 	get_fc(data);
 	check_map_all(data);
 	get_player(&data->map);

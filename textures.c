@@ -32,7 +32,7 @@ void	ft_check_texture(t_data *data)
 		ft_perror("Wrong Texture!\n");
 }
 
-void	get_textures(t_data *data)
+void	get_textures1(t_data *data)
 {
 	char	**splited;
 	int		i;
@@ -43,20 +43,57 @@ void	get_textures(t_data *data)
 		splited = ft_split(data->cub_file[i++], ", \n");
 		if (splited[0])
 		{
-		if (ft_strcmp(splited[0], "NO") == 0)
-			data->north.path = ft_strdup(splited[1]);
-		else if (ft_strcmp(splited[0], "SO") == 0)
-			data->south.path = ft_strdup(splited[1]);
-		else if (ft_strcmp(splited[0], "EA") == 0)
-			data->east.path = ft_strdup(splited[1]);
-		else if (ft_strcmp(splited[0], "WE") == 0)
-			data->west.path = ft_strdup(splited[1]);
+			if (ft_strcmp(splited[0], "NO") == 0)
+			{
+				ft_check_xpm(splited[1], data);
+				data->north.path = ft_strdup(splited[1]);
+			}
+			else if (ft_strcmp(splited[0], "SO") == 0)
+			{
+				ft_check_xpm(splited[1], data);
+				data->south.path = ft_strdup(splited[1]);
+			}
 		}
 		free_split(splited);
 	}
-	if (open(data->north.path, O_RDONLY) < 0
-		|| open(data->south.path, O_RDONLY) < 0
-		|| open(data->east.path, O_RDONLY) < 0
-		|| open(data->west.path, O_RDONLY) < 0)
-		ft_perror("Texture Error\n");
+}
+
+void	get_textures2(t_data *data)
+{
+	char	**splited;
+	int		i;
+
+	i = 0;
+	while (i < data->map_b)
+	{
+		splited = ft_split(data->cub_file[i++], ", \n");
+		if (splited[0])
+		{
+			if (ft_strcmp(splited[0], "EA") == 0)
+			{
+				ft_check_xpm(splited[1], data);
+				data->east.path = ft_strdup(splited[1]);
+			}
+			else if (ft_strcmp(splited[0], "WE") == 0)
+			{
+				ft_check_xpm(splited[1], data);
+				data->west.path = ft_strdup(splited[1]);
+			}
+		}
+		free_split(splited);
+	}
+}
+
+void	ft_check_xpm(char *str, t_data *data)
+{
+	if (&str[0] == NULL)
+		ft_perror("wrong xmp file [empty]\n");
+	if (ft_strrchr(&str[0], '.'))
+	{
+		if (ft_strncmp(ft_strrchr(&str[0], '.'), ".xpm", 4)
+			|| ft_strlen(&str[0]) == 4)
+			ft_perror2("wrong xmp file\n", data);
+	}
+	if (open(&str[0], O_RDONLY) < 0)
+		ft_perror2("Texture Error\n", data);
 }

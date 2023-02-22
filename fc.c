@@ -14,6 +14,11 @@
 
 void	get_rgb(t_color *color, char **str, t_data *data)
 {
+	if (str[4])
+	{
+		free_split(str);
+		ft_perror2("wrong FC!\n", data);
+	}
 	if ((ft_atoi(str[1]) > 255) || (ft_atoi(str[2]) > 255) || \
 	(ft_atoi(str[3]) > 255))
 	{
@@ -25,7 +30,6 @@ void	get_rgb(t_color *color, char **str, t_data *data)
 		free_split(str);
 		ft_perror2("out of color range (low)\n", data);
 	}
-
 	color->r = ft_atoi(str[1]);
 	color->g = ft_atoi(str[2]);
 	color->b = ft_atoi(str[3]);
@@ -35,21 +39,26 @@ void	ft_check_fc(t_data *data)
 {
 	int	i;
 	int	foundf;
-	int foundc;
+	int	foundc;
 
 	i = 0;
 	foundf = 0;
-	foundc=0;
+	foundc = 0;
 	while (i < data->map_b)
 	{
 		if (ft_strncmp(data->cub_file[i], "F ", 2) == 0)
+		{
 			foundf++;
+			checklinebs(data->cub_file[i], data);
+		}
 		if (ft_strncmp(data->cub_file[i], "C ", 2) == 0)
+		{
 			foundc++;
-
+			checklinebs(data->cub_file[i], data);
+		}
 		i++;
 	}
-	if ((foundf != 1) && (foundc != 1))
+	if ((foundf != 1) || (foundc != 1))
 		ft_perror2("check FC!\n", data);
 }
 
@@ -79,4 +88,45 @@ void	get_fc(t_data *data)
 		}
 		free_split(splited);
 	}
+}
+
+// void	ft_check_fccomma(t_data *data)
+// {
+// 	int	i;
+// 	j;
+// 	int	foundfc;
+// 	int foundcc;
+
+// 	i = 0;
+// 	foundfc = 0;
+// 	foundcc=0;
+// 	while (i < data->map_b)
+// 	{
+// 		if (ft_strncmp(data->cub_file[i], "F ", 2) == 0)
+
+// 			foundfc++;
+// 		if (ft_strncmp(data->cub_file[i], "C ", 2) == 0)
+// 			foundcc++;
+
+// 		i++;
+// 	}
+// 	if ((foundf != 1) || (foundc != 1))
+// 		ft_perror2("check FC!\n", data);
+// }
+
+void	checklinebs(char *str, t_data *data)
+{
+	int	i;
+	int	found;
+
+	i = 0;
+	found = 0;
+	while (i < ft_strlen(str))
+	{
+		if (str[i] == ',')
+			found++;
+		i++;
+	}
+	if (found != 2)
+		ft_perror2("wrong FC ,!\n", data);
 }

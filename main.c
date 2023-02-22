@@ -14,7 +14,7 @@
 
 int	exit_prog(void *param)
 {
-	t_data *data;
+	t_data	*data;
 
 	data = (t_data *)param;
 	ft_free(data);
@@ -31,7 +31,7 @@ int	exit_prog(void *param)
 
 int	key_press(int keycode, void *data)
 {
-	t_data *data2;
+	t_data	*data2;
 
 	data2 = (t_data *)data;
 	(void)keycode;
@@ -56,33 +56,31 @@ int	key_press(int keycode, void *data)
 
 int	main(int ac, char **av)
 {
-	t_data data;
+	t_data	data;
 
-		data.map.file_name = av[1];
-		data.map.player = &data.player;
-		int_data(&data);
-		parse_cub(&data, ac, av);
-	// 		printf("the north is [%s]\n", data.north.path);
-	// printf("the south is [%s]\n", data.south.path);
-	// printf("the east is [%s]\n", data.east.path);
-	// printf("the west is [%s]\n", data.west.path);
-	// 	printf("the floor color is [%d]\n", data.floor_int);
-	// printf("the floor color is [%d]\n", data.floor.r);
-	// printf("the floor color is [%d]\n", data.floor.g);
-	// printf("the floor color is [%d]\n", data.floor.b);
-	// printf("the celing color is [%d]\n", data.ceiling_int);
-	// printf("the celing color is [%d]\n", data.ceiling.r);
-	// printf("the celing color is [%d]\n", data.ceiling.g);
-	// printf("the celing color is [%d]\n", data.ceiling.b);
-		set_direction(&data);
-		data.mlx  = mlx_init();
-		data.win = mlx_new_window(data.mlx, SCREEN_W, SCREEN_H, "cub3d");
-		data.img = mlx_new_image(data.mlx, SCREEN_W, SCREEN_H);
-		set_up_ptr(&data);
-		data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_length, &data.endian);
-		place_ceiling_floor(&data);
-		mlx_hook(data.win, 2, 1L<<0, key_press, &data);
-		mlx_hook(data.win, 17, 0, exit_prog, (void *)&data);
-		mlx_loop(data.mlx);
-		ft_free(&data);
+	data.map.file_name = av[1];
+	data.map.player = &data.player;
+	int_data(&data);
+	parse_cub(&data, ac, av);
+	set_direction(&data);
+	data.mlx = mlx_init();
+	data.win = mlx_new_window(data.mlx, SCREEN_W, SCREEN_H, "cub3d");
+	data.img = mlx_new_image(data.mlx, SCREEN_W, SCREEN_H);
+	set_up_ptr(&data);
+	data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, \
+	&data.line_length, &data.endian);
+	place_ceiling_floor(&data);
+	mlx_hook(data.win, 2, 1L << 0, key_press, &data);
+	mlx_hook(data.win, 17, 0, exit_prog, (void *)&data);
+	mlx_loop(data.mlx);
+	ft_free(&data);
 }
+
+	// printf("the map 0 is [%s]\n", data.map.map[0]);
+	// printf("the map 1 is [%s]\n", data.map.map[1]);
+	// printf("the map 2 is [%s]\n", data.map.map[2]);
+	// printf("the map 3 is [%s]\n", data.map.map[3]);
+	//printf("the map 4 is [%s]\n", data.map.map[4] );
+	// printf("the map 5 is [%s]\n", data.map.map[5] );
+	// printf("the map 6 is [%s]\n", data.map.map[6] );
+	// printf("the map 7 is [%s]\n", data.map.map[7] );
