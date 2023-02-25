@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 static int	error_message(size_t *r, int s)
 {
 	if (*r > LLONG_MAX || (long long)*r * s < LLONG_MIN)

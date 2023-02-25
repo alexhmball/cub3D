@@ -56,6 +56,7 @@ void	parse_cub(t_data *data, int ac, char **av)
 	ft_check_arg(ac, av);
 	ft_get_cub_file(data);
 	data->map_b = get_map_start(data);
+	
 	ft_check_cub_file(data);
 	ft_get_map(data);
 	check_map(data);

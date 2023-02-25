@@ -91,7 +91,7 @@ int	get_map_start(t_data *data)
 			if (str[j] == '1')
 				return (i);
 			if (str[j] == ' ')
-				j++;
+				continue ;
 			else if (str[j] != '1' )
 			{
 				i++;

@@ -2,13 +2,3 @@ WE ./textures/testwall.xpm
 NO ./textures/pixelwall.xpm
 SO ./textures/moss_wall_dark.xpm
 EA ./textures/colourful_wall.xpm
-
-
-C 60,55,80
-F 20,50, 30
-
-
-
-11111111
-1N000001
-11111111

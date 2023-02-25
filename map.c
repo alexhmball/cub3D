@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:47:43 by aalnaqbi          #+#    #+#             */
-/*   Updated: 2023/02/22 22:59:25 by aball            ###   ########.fr       */
+/*   Updated: 2023/02/24 06:11:08 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	ft_get_map(t_data *data)
 			ft_strlen(data->cub_file[i]) - check_new_line(data->cub_file[i]));
 			if (data->map.col < ft_strlen(data->map.map[j - 1]))
 				data->map.col = ft_strlen(data->map.map[j - 1]);
+			data->map.map[j] = 0;
 		}
 		else
 			ft_perror2("Invalid map\n", data);
