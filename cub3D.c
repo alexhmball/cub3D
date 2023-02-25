@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 20:57:58 by aalnaqbi          #+#    #+#             */
-/*   Updated: 2023/02/24 06:07:08 by aball            ###   ########.fr       */
+/*   Updated: 2023/02/25 16:35:07 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,52 +60,3 @@ void	int_data(t_data *data)
 	data->cub_file = NULL;
 	data->map.map = NULL;
 }
-
-// int	main(int ac, char **av)
-// {
-// 	t_data	data;
-
-// 	int_data(&data);
-// 	data.map.file_name = av[1];
-// 	parse_cub(&data, ac, av);
-// 	ft_free(&data);
-// }
-
-	// printf("the cubfile is [%s]\n", data.cub_file[0] );
-	// printf("the cubfile is [%s]\n", data.cub_file[1] );
-	// printf("the cubfile is [%s]\n", data.cub_file[2] );
-	// printf("the cubfile is [%s]\n", data.cub_file[3] );
-	// printf("the cubfile is [%s]\n", data.cub_file[4] );
-	// printf("the cubfile is [%s]\n", data.cub_file[5] );
-	// printf("the cubfile is [%s]\n", data.cub_file[6] );
-	// printf("the cubfile is [%s]\n", data.cub_file[7] );
-	// printf("the cubfile is [%s]\n", data.cub_file[8] );
-	// printf("the cubfile is [%s]\n", data.cub_file[9] );
-	// printf("the cubfile is [%s]\n", data.cub_file[10] );
-	// printf("the cubfile is [%s]\n", data.cub_file[11] );
-	// printf("the cubfile is [%s]\n", data.cub_file[12] );
-	// printf("the cubfile is [%s]\n", data.cub_file[13] );
-	// printf("the cubfile is [%s]\n", data.cub_file[14] );
-	// printf("the cubfile is [%s]\n", data.cub_file[15] );
-	// printf("the cubfile is [%s]\n", data.cub_file[16] );
-	// printf("the cubfile is [%s]\n", data.cub_file[17] );
-	// printf("the cubfile is [%s]\n", data.cub_file[18] );
-	// printf("the cubfile is [%s]\n", data.cub_file[19] );
-	// printf("the cubfile is [%s]\n", data.cub_file[20] );
-
-	// printf("the north is [%s]\n", data.north.path);
-	// printf("the south is [%s]\n", data.south.path);
-	// printf("the east is [%s]\n", data.east.path);
-	// printf("the west is [%s]\n", data.west.path);
-
-	// printf("the floor color is [%d]\n", data.floor_int);
-	// printf("the celing color is [%d]\n", data.ceiling_int);
-
-	// printf("the map 0 is [%s]\n", data.map.map[0] );
-	// printf("the map 1 is [%s]\n", data.map.map[1] );
-	// printf("the map 2 is [%s]\n", data.map.map[2] );
-	// printf("the map 3 is [%s]\n", data.map.map[3] );
-	// printf("the map 4 is [%s]\n", data.map.map[4] );
-	// printf("the map 5 is [%s]\n", data.map.map[5] );
-	// printf("the map 6 is [%s]\n", data.map.map[6] );
-	// printf("the map 7 is [%s]\n", data.map.map[7] );

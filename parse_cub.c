@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 18:34:16 by aalnaqbi          #+#    #+#             */
-/*   Updated: 2023/02/20 21:20:54 by aball            ###   ########.fr       */
+/*   Updated: 2023/02/25 14:39:08 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void	parse_cub(t_data *data, int ac, char **av)
 	ft_check_arg(ac, av);
 	ft_get_cub_file(data);
 	data->map_b = get_map_start(data);
-	
 	ft_check_cub_file(data);
 	ft_get_map(data);
 	check_map(data);

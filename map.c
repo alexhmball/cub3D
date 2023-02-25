@@ -6,19 +6,11 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:47:43 by aalnaqbi          #+#    #+#             */
-/*   Updated: 2023/02/24 06:11:08 by aball            ###   ########.fr       */
+/*   Updated: 2023/02/25 16:32:18 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-// int	ft_player_space_detect(char **map, int row, int col)
-// {
-// 	if (map[row][col + 1] == ' ' || map[row][col - 1] == ' '
-// 		|| map[row + 1][col] == ' ' || map[row - 1][col] == ' ')
-// 		ft_perror("space around player\n");
-// 	return (0);
-// }
 
 int	ft_player_space_detect(t_data *data, int row, int col)
 {
@@ -84,7 +76,6 @@ void	ft_get_map(t_data *data)
 			ft_perror2("Invalid map\n", data);
 		i++;
 	}
-	data->map.map[j] = 0;
 }
 
 int	get_map_len(t_data *data)

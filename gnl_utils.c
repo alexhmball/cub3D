@@ -6,30 +6,11 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 11:04:33 by aalnaqbi          #+#    #+#             */
-/*   Updated: 2023/02/20 21:21:59 by aball            ###   ########.fr       */
+/*   Updated: 2023/02/25 16:34:31 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-// char	*ft_gnl(int fd)
-// {
-// 	char	line[5000];
-// 	char	buf;
-// 	int		i;
-
-// 	i = 0;
-// 	while (read(fd, &buf, 1) == 1)
-// 	{
-// 		line[i++] = buf;
-// 		if (buf == '\n')
-// 			break ;
-// 	}
-// 	line[i] = '\0';
-// 	if (!line[0])
-// 		return (NULL);
-// 	return (ft_strdup(line));
-// }
 
 int	ft_count_lines(char *filename)
 {

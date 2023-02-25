@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 19:40:44 by aalnaqbi          #+#    #+#             */
-/*   Updated: 2023/02/20 21:32:20 by aball            ###   ########.fr       */
+/*   Updated: 2023/02/25 16:34:53 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,30 +89,6 @@ void	get_fc(t_data *data)
 		free_split(splited);
 	}
 }
-
-// void	ft_check_fccomma(t_data *data)
-// {
-// 	int	i;
-// 	j;
-// 	int	foundfc;
-// 	int foundcc;
-
-// 	i = 0;
-// 	foundfc = 0;
-// 	foundcc=0;
-// 	while (i < data->map_b)
-// 	{
-// 		if (ft_strncmp(data->cub_file[i], "F ", 2) == 0)
-
-// 			foundfc++;
-// 		if (ft_strncmp(data->cub_file[i], "C ", 2) == 0)
-// 			foundcc++;
-
-// 		i++;
-// 	}
-// 	if ((foundf != 1) || (foundc != 1))
-// 		ft_perror2("check FC!\n", data);
-// }
 
 void	checklinebs(char *str, t_data *data)
 {
