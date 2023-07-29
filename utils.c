@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aalnaqbi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 21:46:49 by aalnaqbi          #+#    #+#             */
-/*   Updated: 2023/01/31 21:46:50 by aalnaqbi         ###   ########.fr       */
+/*   Updated: 2023/06/03 13:53:31 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,28 @@
 
 void	ft_perror(char *error)
 {
-	write(2, "Error\n", 6);
-	write(2, error, ft_strlen(error));
-	exit(2);
+	int ret;
+	ret = write(2, "Error\n", 6);
+	ret = write(2, error, ft_strlen(error));
+	exit(ret);
 }
 
 void	ft_perror2(char *error, t_data *data)
 {
+	int ret;
 	ft_free(data);
-	write(2, "Error\n", 6);
-	write(2, error, ft_strlen(error));
-	exit(2);
+	ret = write(2, "Error\n", 6);
+	ret = write(2, error, ft_strlen(error));
+	exit(ret);
 }
 
 void	ft_perror3(char *error, char **str)
 {
+	int ret;
 	ft_free2darray(str);
-	write(2, "Error\n", 6);
-	write(2, error, ft_strlen(error));
-	exit(2);
+	ret = write(2, "Error\n", 6);
+	ret = write(2, error, ft_strlen(error));
+	exit(ret);
 }
 
 int	ft_strlen(char *s)

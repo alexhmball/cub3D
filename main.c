@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 15:47:43 by aball             #+#    #+#             */
-/*   Updated: 2023/02/25 16:43:42 by aball            ###   ########.fr       */
+/*   Updated: 2023/06/03 13:55:21 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	main(int ac, char **av)
 	parse_cub(&data, ac, av);
 	set_direction(&data);
 	data.mlx = mlx_init();
-	mlx_do_sync(data.mlx);
+	// mlx_do_sync(data.mlx);
 	data.win = mlx_new_window(data.mlx, SCREEN_W, SCREEN_H, "cub3d");
 	data.img = mlx_new_image(data.mlx, SCREEN_W, SCREEN_H);
 	set_up_ptr(&data);

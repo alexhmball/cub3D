@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 02:52:55 by ballzball         #+#    #+#             */
-/*   Updated: 2023/02/22 22:47:12 by aball            ###   ########.fr       */
+/*   Updated: 2023/07/29 16:49:10 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@
 # define FOV 60
 # define SCREEN_W 1200
 # define SCREEN_H 1200
-# define SPEED 0.2
+# define SPEED 0.5
 
 typedef struct s_ray
 {

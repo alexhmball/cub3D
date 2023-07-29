@@ -1,7 +1,0 @@
-{
-	unintialized bytes
-	Memcheck:Param
-	writev(vector[0])
-	...
-	fun:mlx_new_window
-}

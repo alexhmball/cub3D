@@ -1,6 +1,0 @@
-~~~~~~Work to be done~~~~~~~~
-Check map is closed by walls
-Detect Wall hits
-Ray tracing
-player movement
-wall collisions

@@ -6,7 +6,7 @@
 #    By: aball <aball@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 17:54:03 by aball             #+#    #+#              #
-#    Updated: 2023/02/22 22:49:34 by aball            ###   ########.fr        #
+#    Updated: 2023/06/23 23:55:11 by aball            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,8 +43,7 @@ endif
 all: $(NAME)
 
 $(NAME):  mlx ${OBJS}
-	gcc -fsanitize=address -g -O3 -Wall -Wextra -Werror -D ${OS} ${OBJS} ${LINKS} -lm -o ${NAME}
-# -fsanitize=address
+	gcc -Ofast -Wall -Wextra -Werror -D ${OS} ${OBJS} ${LINKS} -lm -o ${NAME}
 
 %.o:%.c
 	gcc -O3 -g -Wall -Wextra -Werror -D ${OS} -c $< -o ${<:c=o}

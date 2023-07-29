@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 15:20:32 by aball             #+#    #+#             */
-/*   Updated: 2023/02/22 23:12:58 by aball            ###   ########.fr       */
+/*   Updated: 2023/07/06 19:08:24 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int	check_vert_walls(t_data *data)
 		return (0);
 	if (data->map.map[vy][vx] == '1')
 		return (0);
+	// my_mlx_pixel_put(data, data->player.ray.vx * 10, data->player.ray.vy * 10, 0XFF00000);
 	data->player.ray.vx += data->player.ray.vx_inc;
 	data->player.ray.vy += data->player.ray.vy_inc;
 	return (1);
@@ -89,6 +90,7 @@ int	check_horiz_walls(t_data *data)
 		return (0);
 	if (data->map.map[hy][hx] != '0')
 		return (0);
+	// my_mlx_pixel_put(data, data->player.ray.hx * 10, data->player.ray.hy * 10, 0X0000FF);
 	data->player.ray.hx += data->player.ray.hx_inc;
 	data->player.ray.hy += data->player.ray.hy_inc;
 	return (1);

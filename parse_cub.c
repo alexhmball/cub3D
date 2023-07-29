@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 18:34:16 by aalnaqbi          #+#    #+#             */
-/*   Updated: 2023/02/25 14:39:08 by aball            ###   ########.fr       */
+/*   Updated: 2023/02/25 17:38:06 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	parse_cub(t_data *data, int ac, char **av)
 	data->map_b = get_map_start(data);
 	ft_check_cub_file(data);
 	ft_get_map(data);
+	if (data->map.row < 3)
+		ft_perror2("wrong map", data);
 	check_map(data);
 	get_textures1(data);
 	get_textures2(data);
