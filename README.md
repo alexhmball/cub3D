@@ -1,7 +1,8 @@
-# cub3D - Exploring RayCasting 
-<p align="center">
-![cub](https://github.com/alexhmball/cub3D/cub3d_walking.gif)
-</p>
+
+<h1 align="center">cub3D - Exploring RayCasting </h1>
+
+![cub](https://github.com/alexhmball/cub3D/blob/master/cub3d_walking.gif)
+
 The cub3D project offered a thrilling opportunity for me to venture into the captivating world of 3D graphics and game development. Inspired by the iconic game Wolfenstein 3D, this project challenged me to create a realistic 3D graphical representation of a maze from a first-person perspective using the RayCasting principles, particularly the Digital Differential Analyzer (DDA) algorithm.
 
 ## Learning Goals
